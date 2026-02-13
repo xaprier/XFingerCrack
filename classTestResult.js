@@ -1,0 +1,26 @@
+var classTestResult =
+[
+    [ "TestResult", "classTestResult.html#acd884bf7edc7ca65055d5961695841ea", null ],
+    [ "CharacterStats", "classTestResult.html#af5979256a511916461402c7f16022bb8", null ],
+    [ "Clear", "classTestResult.html#aeed63e96d96dd7574be59531bf0a5e24", null ],
+    [ "Errors", "classTestResult.html#aa93c52b84575407d01694f1fd1e20b53", null ],
+    [ "FinalizeResults", "classTestResult.html#a91d55f96ad4fb78c23bebe93f02c9aa1", null ],
+    [ "GetAverageWpm", "classTestResult.html#a8bf2fd0edb7758766da6e41a58b1dfaf", null ],
+    [ "GetErrorCount", "classTestResult.html#a14e5c14d167a8ca931bdb282c2d3d219", null ],
+    [ "GetMaxWpm", "classTestResult.html#aee3c2bb178df87f562c3240ce9ca7559", null ],
+    [ "GetMinWpm", "classTestResult.html#a856b993bb0736543a8a30e00eac8ea25", null ],
+    [ "GetMostMissedCharacters", "classTestResult.html#a95435470c32c0ce78e666e32cc5aea63", null ],
+    [ "HasData", "classTestResult.html#acf182363500b7b0d1a8f426c92dfc8c4", null ],
+    [ "IsFinalized", "classTestResult.html#a2240217319d0456cee2d1a19106b1cb4", null ],
+    [ "RecordCharacterCorrection", "classTestResult.html#a2eb3684354bb5bc4e4d14df37161f662", null ],
+    [ "RecordCharacterError", "classTestResult.html#aa2e12654446b5036146b636996075aa6", null ],
+    [ "RecordCharacterTyped", "classTestResult.html#a1482cc398dbbc35e75a4ef75f5e051ac", null ],
+    [ "RecordCorrectWord", "classTestResult.html#a47b89a309fa176fc82271c009d40c9a0", null ],
+    [ "RecordSkippedCharacter", "classTestResult.html#a6c1e8f1e7763a97b1ad992ac6d4a281e", null ],
+    [ "RecordWordCompletion", "classTestResult.html#aedfd8749a6c7b82e5a81cd0fbee15a45", null ],
+    [ "RecordWpmDataPoint", "classTestResult.html#a89112ff6e2040c1a340d7dddbd08f78f", null ],
+    [ "Statistics", "classTestResult.html#afd06ef7b4bd4a514adb1960f5273b530", null ],
+    [ "TypedTextHistory", "classTestResult.html#a51b792d39955034538f65bb721edde3d", null ],
+    [ "UpdateMaxTypedPosition", "classTestResult.html#a953157b800b6c9f54964bf49bd6204cd", null ],
+    [ "WpmHistory", "classTestResult.html#aa763b4f1340d664ab55f989bc46dd270", null ]
+];
