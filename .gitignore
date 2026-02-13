@@ -66,9 +66,6 @@ install_manifest.txt
 # QtCreator
 *.autosave
 
-# Translation built files
-*.qm
-
 # Clang files
 .clang*
 .cache/
