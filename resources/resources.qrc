@@ -1,50 +1,84 @@
+<!DOCTYPE RCC>
 <RCC>
-    <qresource prefix="/">
-        <file>themes.json</file>
-        <file>translations/translation_en_US.qm</file>
-        <file>translations/translation_tr_TR.qm</file>
-        <file>translations/translation_de_DE.qm</file>
-        <file>wordlist/code_c++.json</file>
-        <file>wordlist/english.json</file>
-        <file>wordlist/french.json</file>
-        <file>wordlist/german.json</file>
-        <file>wordlist/spanish.json</file>
-        <file>wordlist/turkish.json</file>
-        <file>sounds/click4/click4_1.wav</file>
-        <file>sounds/click4/click4_2.wav</file>
-        <file>sounds/click4/click4_3.wav</file>
-        <file>sounds/click4/click4_4.wav</file>
-        <file>sounds/click4/click4_5.wav</file>
-        <file>sounds/click4/click4_6.wav</file>
-        <file>sounds/click4/click4_11.wav</file>
-        <file>sounds/click4/click4_22.wav</file>
-        <file>sounds/click4/click4_33.wav</file>
-        <file>sounds/click4/click4_44.wav</file>
-        <file>sounds/click4/click4_55.wav</file>
-        <file>sounds/click4/click4_66.wav</file>
-        <file>sounds/click5/click5_1.wav</file>
-        <file>sounds/click5/click5_2.wav</file>
-        <file>sounds/click5/click5_3.wav</file>
-        <file>sounds/click5/click5_4.wav</file>
-        <file>sounds/click5/click5_5.wav</file>
-        <file>sounds/click5/click5_6.wav</file>
-        <file>sounds/click5/click5_11.wav</file>
-        <file>sounds/click5/click5_22.wav</file>
-        <file>sounds/click5/click5_33.wav</file>
-        <file>sounds/click5/click5_44.wav</file>
-        <file>sounds/click5/click5_55.wav</file>
-        <file>sounds/click5/click5_66.wav</file>
-        <file>sounds/click6/click6_1.wav</file>
-        <file>sounds/click6/click6_2.wav</file>
-        <file>sounds/click6/click6_3.wav</file>
-        <file>sounds/click6/click6_11.wav</file>
-        <file>sounds/click6/click6_22.wav</file>
-        <file>sounds/click6/click6_33.wav</file>
-        <file>sounds/click15/click15_1.wav</file>
-        <file>sounds/click15/click15_2.wav</file>
-        <file>sounds/click15/click15_3.wav</file>
-        <file>sounds/click15/click15_4.wav</file>
-        <file>sounds/click15/click15_5.wav</file>
-        <file>sounds/error2/error2_1.wav</file>
-    </qresource>
+  <qresource prefix="/">
+    <file>themes.json</file>
+    <file>XFingerCrack.png</file>
+    <file>translations/translation_en_US.qm</file>
+    <file>translations/translation_tr_TR.qm</file>
+    <file>translations/translation_de_DE.qm</file>
+    <file>wordlist/code_c++.json</file>
+    <file>wordlist/english.json</file>
+    <file>wordlist/french.json</file>
+    <file>wordlist/german.json</file>
+    <file>wordlist/spanish.json</file>
+    <file>wordlist/turkish.json</file>
+    <file>sounds/click4/click4_1.wav</file>
+    <file>sounds/click4/click4_2.wav</file>
+    <file>sounds/click4/click4_3.wav</file>
+    <file>sounds/click4/click4_4.wav</file>
+    <file>sounds/click4/click4_5.wav</file>
+    <file>sounds/click4/click4_6.wav</file>
+    <file>sounds/click4/click4_11.wav</file>
+    <file>sounds/click4/click4_22.wav</file>
+    <file>sounds/click4/click4_33.wav</file>
+    <file>sounds/click4/click4_44.wav</file>
+    <file>sounds/click4/click4_55.wav</file>
+    <file>sounds/click4/click4_66.wav</file>
+    <file>sounds/click5/click5_1.wav</file>
+    <file>sounds/click5/click5_2.wav</file>
+    <file>sounds/click5/click5_3.wav</file>
+    <file>sounds/click5/click5_4.wav</file>
+    <file>sounds/click5/click5_5.wav</file>
+    <file>sounds/click5/click5_6.wav</file>
+    <file>sounds/click5/click5_11.wav</file>
+    <file>sounds/click5/click5_22.wav</file>
+    <file>sounds/click5/click5_33.wav</file>
+    <file>sounds/click5/click5_44.wav</file>
+    <file>sounds/click5/click5_55.wav</file>
+    <file>sounds/click5/click5_66.wav</file>
+    <file>sounds/click6/click6_1.wav</file>
+    <file>sounds/click6/click6_2.wav</file>
+    <file>sounds/click6/click6_3.wav</file>
+    <file>sounds/click6/click6_11.wav</file>
+    <file>sounds/click6/click6_22.wav</file>
+    <file>sounds/click6/click6_33.wav</file>
+    <file>sounds/click15/click15_1.wav</file>
+    <file>sounds/click15/click15_2.wav</file>
+    <file>sounds/click15/click15_3.wav</file>
+    <file>sounds/click15/click15_4.wav</file>
+    <file>sounds/click15/click15_5.wav</file>
+    <file>sounds/error2/error2_1.wav</file>
+    <file alias="qml/main.qml">../qml/main.qml</file>
+    <file alias="qml/pages/About.qml">../qml/pages/About.qml</file>
+    <file alias="qml/pages/History.qml">../qml/pages/History.qml</file>
+    <file alias="qml/pages/ResultsScreen.qml">../qml/pages/ResultsScreen.qml</file>
+    <file alias="qml/pages/Settings.qml">../qml/pages/Settings.qml</file>
+    <file alias="qml/components/HistoryBestResultItem.qml">../qml/components/HistoryBestResultItem.qml</file>
+    <file alias="qml/components/HistoryBestResults.qml">../qml/components/HistoryBestResults.qml</file>
+    <file alias="qml/components/HistoryDateSeparator.qml">../qml/components/HistoryDateSeparator.qml</file>
+    <file alias="qml/components/HistoryRecentTestDateSeparator.qml">../qml/components/HistoryRecentTestDateSeparator.qml</file>
+    <file alias="qml/components/HistoryRecentTestItem.qml">../qml/components/HistoryRecentTestItem.qml</file>
+    <file alias="qml/components/HistoryRecentTests.qml">../qml/components/HistoryRecentTests.qml</file>
+    <file alias="qml/components/HistoryRecentTestsFilter.qml">../qml/components/HistoryRecentTestsFilter.qml</file>
+    <file alias="qml/components/HistoryStatCard.qml">../qml/components/HistoryStatCard.qml</file>
+    <file alias="qml/components/HistoryStatistics.qml">../qml/components/HistoryStatistics.qml</file>
+    <file alias="qml/components/HistoryStatsCard.qml">../qml/components/HistoryStatsCard.qml</file>
+    <file alias="qml/components/HistorySummaryStats.qml">../qml/components/HistorySummaryStats.qml</file>
+    <file alias="qml/components/HistoryTestItem.qml">../qml/components/HistoryTestItem.qml</file>
+    <file alias="qml/components/LoadingIndicator.qml">../qml/components/LoadingIndicator.qml</file>
+    <file alias="qml/components/ModalDialog.qml">../qml/components/ModalDialog.qml</file>
+    <file alias="qml/components/ResponsiveConfig.qml">../qml/components/ResponsiveConfig.qml</file>
+    <file alias="qml/components/ResultSummary.qml">../qml/components/ResultSummary.qml</file>
+    <file alias="qml/components/ResultTypedText.qml">../qml/components/ResultTypedText.qml</file>
+    <file alias="qml/components/ResultWPMOverTime.qml">../qml/components/ResultWPMOverTime.qml</file>
+    <file alias="qml/components/SettingsItem.qml">../qml/components/SettingsItem.qml</file>
+    <file alias="qml/components/SettingsOptionItem.qml">../qml/components/SettingsOptionItem.qml</file>
+    <file alias="qml/components/TextWithFont.qml">../qml/components/TextWithFont.qml</file>
+    <file alias="qml/components/ThemedToolTip.qml">../qml/components/ThemedToolTip.qml</file>
+    <file alias="qml/components/Toolbar.qml">../qml/components/Toolbar.qml</file>
+    <file alias="qml/components/TypingArea.qml">../qml/components/TypingArea.qml</file>
+    <file>fonts/JetBrainsMono-Regular.ttf</file>
+    <file>fonts/CartographCF-Regular.ttf</file>
+    <file>fonts/MesloLGS-NF-Regular.ttf</file>
+  </qresource>
 </RCC>

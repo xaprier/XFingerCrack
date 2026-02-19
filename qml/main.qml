@@ -14,6 +14,18 @@ ApplicationWindow {
     title: qsTr("%1 - Typing Test").arg(appInfo.applicationName)
     
     color: themeManager.currentTheme.background
+
+    // Set global font for entire application from backend FontManager
+    font.family: fontManager.currentFont
+    
+    // Watch for font changes from backend and force update
+    Connections {
+        target: fontManager
+        function onCurrentFontChanged() {
+            // Force update the font property
+            root.font.family = fontManager.currentFont
+        }
+    }
     
     // Listen for language changes and trigger retranslation
     Connections {
@@ -144,6 +156,13 @@ ApplicationWindow {
     
     property bool showResults: false
     property bool showHistory: false
+    
+    // Reset test when leaving results screen
+    onShowResultsChanged: {
+        if (!showResults) {
+            typingTest.ResetTest()
+        }
+    }
     
     // Show results screen when test completes
     Connections {

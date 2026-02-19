@@ -300,68 +300,100 @@ void TestResult::BuildTypedTextHistory(const QString& targetText,
                                        const QString& userInput) {
     m_typedTextHistory.clear();
 
-    // Process character by character to maintain correct positions
-    int targetPos = 0;
-    int userPos = 0;
-    int wordIdx = 0;
+    // Split into words
+    QStringList targetWords = targetText.split(' ', Qt::SkipEmptyParts);
+    QStringList userWords = userInput.split(' ', Qt::SkipEmptyParts);
 
-    QStringList targetWords = targetText.split(' ', Qt::KeepEmptyParts);
-    QStringList userWords = userInput.split(' ', Qt::KeepEmptyParts);
+    int globalCharPosition = 0;  // Track absolute character position in targetText
 
-    for (int realPos = 0; realPos < targetText.length(); ++realPos) {
-        CharacterHistory history;
-        history.position = realPos;
+    // Process word by word
+    for (int wordIdx = 0; wordIdx < targetWords.size(); ++wordIdx) {
+        const QString& expectedWord = targetWords[wordIdx];
+        QString typedWord = (wordIdx < userWords.size()) ? userWords[wordIdx] : "";
 
-        QChar expectedChar = targetText[realPos];
-        QChar actualChar = (realPos < userInput.length()) ? userInput[realPos] : QChar(' ');
-
-        history.expected = expectedChar;
-        history.actualTyped = actualChar;
-
-        // Find which word this position belongs to
-        int charCount = 0;
-        int currentWordIdx = 0;
-        for (int w = 0; w < targetWords.size(); ++w) {
-            int wordLen = targetWords[w].length();
-            if (realPos >= charCount && realPos < charCount + wordLen) {
-                currentWordIdx = w;
-                break;
-            }
-            charCount += wordLen;
-            if (w < targetWords.size() - 1) {
-                charCount++;  // space
-                if (realPos == charCount - 1) {
-                    currentWordIdx = w;
-                    break;
-                }
-            }
+        // If user hasn't started typing this word yet, skip it entirely
+        if (wordIdx >= userWords.size()) {
+            break;  // Don't show words that weren't even started
         }
 
-        history.wordIndex = currentWordIdx;
-        if (currentWordIdx < targetWords.size()) {
-            history.expectedWord = targetWords[currentWordIdx];
-        }
-        history.wordWpm = m_wordWpmMap.contains(currentWordIdx) ? m_wordWpmMap[currentWordIdx] : m_statistics.finalWpm;
+        // Get WPM for this word
+        int wordWpm = m_wordWpmMap.contains(wordIdx) ? m_wordWpmMap[wordIdx] : m_statistics.finalWpm;
 
-        // Get correction count for this position
-        history.correctionCount = m_correctionCountMap.value(realPos, 0);
+        // Process each character in the expected word
+        int maxLen = std::max(expectedWord.length(), typedWord.length());
+        for (int charIdx = 0; charIdx < expectedWord.length(); ++charIdx) {
+            CharacterHistory history;
+            history.position = globalCharPosition++;
+            history.wordIndex = wordIdx;
+            history.expectedWord = expectedWord;
+            history.wordWpm = wordWpm;
+            history.expected = expectedWord[charIdx];
 
-        // Determine final state
-        if (realPos < userInput.length()) {
-            if (actualChar == expectedChar) {
-                if (history.correctionCount > 0) {
-                    history.finalState = "corrected";
+            // Get correction count for this position (based on original target text position)
+            int targetTextPos = 0;
+            for (int w = 0; w < wordIdx; ++w) {
+                targetTextPos += targetWords[w].length() + 1;  // +1 for space
+            }
+            targetTextPos += charIdx;
+            history.correctionCount = m_correctionCountMap.value(targetTextPos, 0);
+
+            // Determine what was actually typed
+            if (charIdx < typedWord.length()) {
+                QChar typedChar = typedWord[charIdx];
+                history.actualTyped = typedChar;
+                history.typedChars.append(typedChar);
+
+                // Determine state
+                if (typedChar == expectedWord[charIdx]) {
+                    if (history.correctionCount > 0) {
+                        history.finalState = "corrected";
+                    } else {
+                        history.finalState = "correct";
+                    }
                 } else {
-                    history.finalState = "correct";
+                    history.finalState = "incorrect";
                 }
             } else {
-                history.finalState = "incorrect";
+                // Character was not typed (word was typed partially)
+                history.actualTyped = QChar(' ');
+                history.finalState = "skipped";
             }
-        } else {
-            history.finalState = "skipped";
+
+            m_typedTextHistory.append(history);
         }
 
-        history.typedChars.append(actualChar);
-        m_typedTextHistory.append(history);
+        // Add extra characters if user typed more than expected
+        for (int charIdx = expectedWord.length(); charIdx < typedWord.length(); ++charIdx) {
+            CharacterHistory history;
+            history.position = globalCharPosition++;
+            history.wordIndex = wordIdx;
+            history.expectedWord = expectedWord;
+            history.wordWpm = wordWpm;
+            history.expected = QChar(' ');  // No expected character
+            history.actualTyped = typedWord[charIdx];
+            history.typedChars.append(typedWord[charIdx]);
+            history.finalState = "incorrect";  // Extra characters are incorrect
+            history.correctionCount = 0;
+
+            m_typedTextHistory.append(history);
+        }
+
+        // Add space after word (if not the last word AND user typed the space)
+        if (wordIdx < targetWords.size() - 1 && wordIdx < userWords.size() - 1) {
+            CharacterHistory history;
+            history.position = globalCharPosition++;
+            history.wordIndex = wordIdx;
+            history.expectedWord = expectedWord;
+            history.wordWpm = wordWpm;
+            history.expected = QChar(' ');
+            history.actualTyped = QChar(' ');
+            history.typedChars.append(QChar(' '));
+            history.finalState = "correct";
+            history.correctionCount = 0;
+
+            m_typedTextHistory.append(history);
+        }
+        // If this is the last word user typed, but not the last word in target,
+        // and user didn't add a space after, skip the space (don't add it)
     }
 }

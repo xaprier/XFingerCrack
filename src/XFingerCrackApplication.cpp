@@ -1,7 +1,10 @@
 #include "XFingerCrackApplication.hpp"
 
+#include <QIcon>
+
 #include "AppInfo.hpp"
 #include "ConfigManager.hpp"
+#include "FontManager.hpp"
 #include "TestHistory.hpp"
 #include "ThemeManager.hpp"
 #include "TranslationManager.hpp"
@@ -14,6 +17,9 @@ XFingerCrackApplication::XFingerCrackApplication(int& argc, char** argv)
     // Set application metadata
     setOrganizationName(APP_ORGANIZATION);
     setApplicationName(APP_NAME);
+    
+    // Set application icon
+    setWindowIcon(QIcon(":/XFingerCrack.png"));
 }
 
 XFingerCrackApplication::~XFingerCrackApplication() {
@@ -53,6 +59,10 @@ void XFingerCrackApplication::initializeComponents() {
     // Load saved theme
     m_themeManager->SetTheme(m_configManager->Theme());
 
+    // Create font manager and load fonts
+    m_fontManager = new FontManager(this);
+    m_fontManager->SetFont(m_configManager->FontFamily());
+
     // Create test history
     m_testHistory = new TestHistory(this);
 
@@ -83,6 +93,7 @@ void XFingerCrackApplication::setupContextProperties() {
     rootContext()->setContextProperty("translationManager", m_translationManager);
     rootContext()->setContextProperty("appInfo", m_appInfo);
     rootContext()->setContextProperty("testHistory", m_testHistory);
+    rootContext()->setContextProperty("fontManager", m_fontManager);
 }
 
 void XFingerCrackApplication::setupConnections() {
@@ -99,16 +110,25 @@ void XFingerCrackApplication::setupConnections() {
                          m_wordGenerator->LoadWordlist(m_configManager->Language());
                          m_typingTest->ResetTest();
                      });
+
+    // Connect font family changes to font manager
+    QObject::connect(m_configManager, &ConfigManager::fontFamilyChanged,
+                     this, [this]() {
+                         m_fontManager->SetFont(m_configManager->FontFamily());
+                     });
 }
 
 QUrl XFingerCrackApplication::getMainQmlPath() const {
-    return QUrl(QStringLiteral("qrc:/qt/qml/XFingerCrack/qml/main.qml"));
+    return QUrl(QStringLiteral("qrc:/qml/main.qml"));
 }
 
 void XFingerCrackApplication::cleanup() {
     // Disconnect all connections to avoid dangling pointers
     if (m_configManager) {
         disconnect(m_configManager, nullptr, nullptr, nullptr);
+    }
+    if (m_fontManager) {
+        disconnect(m_fontManager, nullptr, nullptr, nullptr);
     }
 
     // Clear context properties before engine destruction
@@ -120,5 +140,6 @@ void XFingerCrackApplication::cleanup() {
         engine()->rootContext()->setContextProperty("translationManager", nullptr);
         engine()->rootContext()->setContextProperty("appInfo", nullptr);
         engine()->rootContext()->setContextProperty("testHistory", nullptr);
+        engine()->rootContext()->setContextProperty("fontManager", nullptr);
     }
 }

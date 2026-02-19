@@ -194,14 +194,14 @@ Item {
             Column {
                 spacing: 5
                 
-                Text {
+                TextWithFont {
                     text: typingTest.mode === 0 ? qsTr("Time") : qsTr("Words")
                     color: themeManager.currentTheme.textSecondary
                     font.pixelSize: 14
                     anchors.horizontalCenter: parent.horizontalCenter
                 }
                 
-                Text {
+                TextWithFont {
                     text: typingTest.mode === 0 ? 
                         typingTest.remainingTime + qsTr("s") : 
                         typingTest.remainingWords + qsTr(" left")
@@ -223,14 +223,14 @@ Item {
             Column {
                 spacing: 5
                 
-                Text {
+                TextWithFont {
                     text: qsTr("WPM")
                     color: themeManager.currentTheme.textSecondary
                     font.pixelSize: 14
                     anchors.horizontalCenter: parent.horizontalCenter
                 }
                 
-                Text {
+                TextWithFont {
                     text: typingTest.liveWpm
                     color: themeManager.currentTheme.text
                     font.pixelSize: 28
@@ -250,14 +250,14 @@ Item {
             Column {
                 spacing: 5
                 
-                Text {
+                TextWithFont {
                     text: qsTr("Accuracy")
                     color: themeManager.currentTheme.textSecondary
                     font.pixelSize: 14
                     anchors.horizontalCenter: parent.horizontalCenter
                 }
                 
-                Text {
+                TextWithFont {
                     text: typingTest.liveAccuracy.toFixed(1) + "%"
                     color: themeManager.currentTheme.text
                     font.pixelSize: 28
@@ -364,7 +364,7 @@ Item {
                                     id: wordCharactersRepeater
                                     model: wordText.length
                                     
-                                    Text {
+                                    TextWithFont {
                                         property int charIndex: wordStartIndex + index
                                         property string targetChar: wordText.charAt(index)
                                         property string userInput: typingTest.userInput
@@ -382,7 +382,6 @@ Item {
                                         
                                         text: targetChar
                                         font.pixelSize: 24
-                                        font.family: "Monospace"
                                         
                                         color: {
                                             // Use pre-computed currentWordIndex instead of re-counting
@@ -480,7 +479,7 @@ Item {
                                         return 0
                                     }
                                     
-                                    Text {
+                                    TextWithFont {
                                         property string userInput: typingTest.userInput
                                         property string extraChar: {
                                             // Use pre-computed _userWords instead of re-splitting
@@ -491,7 +490,6 @@ Item {
                                         
                                         text: extraChar
                                         font.pixelSize: 24
-                                        font.family: "Monospace"
                                         color: themeManager.currentTheme.incorrect
                                         
                                         // Underline for extra characters
@@ -505,12 +503,11 @@ Item {
                                 }
                                 
                                 // Space after word (except last word)
-                                Text {
+                                TextWithFont {
                                     id: spaceText
                                     visible: wordIndex < wordRepeater.count - 1
                                     text: " "
                                     font.pixelSize: 24
-                                    font.family: "Monospace"
                                     
                                     property int spaceCharIndex: wordStartIndex + wordText.length
                                     property string userInput: typingTest.userInput
@@ -710,7 +707,7 @@ Item {
             anchors.horizontalCenter: parent.horizontalCenter
             spacing: 15
             
-            Text {
+            TextWithFont {
                 text: typingTest.isActive ? 
                     qsTr("Press Tab+Enter or ESC to restart") : 
                     qsTr("Start typing to begin the test")
@@ -772,7 +769,7 @@ Item {
                     }
                 }
                 
-                contentItem: Text {
+                contentItem: TextWithFont {
                     text: "↻"
                     color: themeManager.currentTheme.background
                     horizontalAlignment: Text.AlignHCenter

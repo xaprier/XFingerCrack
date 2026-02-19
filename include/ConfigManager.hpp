@@ -34,6 +34,8 @@ class ConfigManager : public QObject {
                    soundVolumeChanged)
     Q_PROPERTY(QString uiLanguage READ UiLanguage WRITE SetUiLanguage NOTIFY
                    uiLanguageChanged)
+    Q_PROPERTY(QString fontFamily READ FontFamily WRITE SetFontFamily NOTIFY
+                   fontFamilyChanged)
 
   public:
     /**
@@ -54,6 +56,7 @@ class ConfigManager : public QObject {
     QString ClickSoundVariant() const { return m_clickSoundVariant; }
     qreal SoundVolume() const { return m_soundVolume; }
     QString UiLanguage() const { return m_uiLanguage; }
+    QString FontFamily() const { return m_fontFamily; }
 
     // Setters
     void SetTheme(const QString& theme);
@@ -67,6 +70,7 @@ class ConfigManager : public QObject {
     void SetClickSoundVariant(const QString& variant);
     void SetSoundVolume(qreal volume);
     void SetUiLanguage(const QString& language);
+    void SetFontFamily(const QString& fontFamily);
 
     /**
      * @brief Load settings from database
@@ -96,6 +100,7 @@ class ConfigManager : public QObject {
     void clickSoundVariantChanged();
     void soundVolumeChanged();
     void uiLanguageChanged();
+    void fontFamilyChanged();
 
   private:
     /**
@@ -137,6 +142,7 @@ class ConfigManager : public QObject {
     QString m_clickSoundVariant;
     qreal m_soundVolume;
     QString m_uiLanguage;
+    QString m_fontFamily;
 };
 
 #endif  // CONFIGMANAGER_HPP

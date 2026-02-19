@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=XFingerCrack
+Comment=Local keyboard typing speed test application built with QML.
+Exec=fingercrack
+Icon=XFingerCrack
+Categories=Utility;
+Keywords=fingercrack;

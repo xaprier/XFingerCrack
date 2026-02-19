@@ -43,7 +43,7 @@ Item {
         anchors.fill: parent
         spacing: 20
         
-        Text {
+        TextWithFont { 
             text: qsTr("Best Results")
             font.pixelSize: 20
             font.bold: true
@@ -68,7 +68,7 @@ Item {
                     border.width: 1
                     border.color: parent.checked ? themeManager.currentTheme.border : "transparent"
                 }
-                contentItem: Text {
+                contentItem: TextWithFont {
                     text: parent.text
                     font.pixelSize: 14
                     color: themeManager.currentTheme.text
@@ -85,7 +85,7 @@ Item {
                     border.width: 1
                     border.color: parent.checked ? themeManager.currentTheme.border : "transparent"
                 }
-                contentItem: Text {
+                contentItem: TextWithFont {
                     text: parent.text
                     font.pixelSize: 14
                     color: themeManager.currentTheme.text

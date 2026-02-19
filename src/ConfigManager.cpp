@@ -21,7 +21,8 @@ ConfigManager::ConfigManager(QObject* parent)
       m_soundOnError(true),
       m_clickSoundVariant("click4"),
       m_soundVolume(0.5),
-      m_uiLanguage("tr_TR") {
+      m_uiLanguage("tr_TR"),
+      m_fontFamily("JetBrains Mono") {
     if (InitDatabase()) {
         LoadSettings();
     }
@@ -197,6 +198,14 @@ void ConfigManager::SetUiLanguage(const QString& language) {
     }
 }
 
+void ConfigManager::SetFontFamily(const QString& fontFamily) {
+    if (m_fontFamily != fontFamily) {
+        m_fontFamily = fontFamily;
+        SaveSetting("fontFamily", fontFamily);
+        emit fontFamilyChanged();
+    }
+}
+
 void ConfigManager::LoadSettings() {
     m_theme = LoadSetting("theme", "Dark").toString();
     m_mode = LoadSetting("mode", 0).toInt();
@@ -210,6 +219,7 @@ void ConfigManager::LoadSettings() {
         LoadSetting("clickSoundVariant", "click4").toString();
     m_soundVolume = LoadSetting("soundVolume", 0.5).toReal();
     m_uiLanguage = LoadSetting("uiLanguage", "tr_TR").toString();
+    m_fontFamily = LoadSetting("fontFamily", "JetBrains Mono").toString();
 
     qDebug() << "ConfigManager: Loaded settings - Language:" << m_language
              << "Theme:" << m_theme << "Mode:" << m_mode;
@@ -226,6 +236,7 @@ void ConfigManager::LoadSettings() {
     emit clickSoundVariantChanged();
     emit soundVolumeChanged();
     emit uiLanguageChanged();
+    emit fontFamilyChanged();
 }
 
 void ConfigManager::SaveSettings() {
@@ -241,6 +252,7 @@ void ConfigManager::SaveSettings() {
     SaveSetting("clickSoundVariant", m_clickSoundVariant);
     SaveSetting("soundVolume", m_soundVolume);
     SaveSetting("uiLanguage", m_uiLanguage);
+    SaveSetting("fontFamily", m_fontFamily);
 
     qDebug() << "ConfigManager: All settings saved to database";
 }

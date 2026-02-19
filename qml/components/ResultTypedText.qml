@@ -7,16 +7,17 @@ Rectangle {
     property var testResult
     
     width: parent.width
-    height: Math.max(150, typedTextFlow.implicitHeight + 80)
+    height: contentColumn.implicitHeight + 40
     color: themeManager.currentTheme.surface
     radius: 15
     
     Column {
+        id: contentColumn
         anchors.fill: parent
         anchors.margins: 20
         spacing: 5
         
-        Text {
+        TextWithFont {
             text: qsTr("Typed Text")
             color: themeManager.currentTheme.text
             font.pixelSize: 18
@@ -26,7 +27,7 @@ Rectangle {
         // Scrollable text area with character-by-character coloring
         Flickable {
             width: parent.width
-            height: Math.min(200, typedTextFlow.implicitHeight + 40)
+            height: Math.max(100, Math.min(300, typedTextFlow.implicitHeight + 20))
             contentHeight: typedTextFlow.implicitHeight + 20
             clip: true
             
@@ -38,9 +39,11 @@ Rectangle {
                 
                 Repeater {
                     id: typedTextRepeater
-                    model: testResult ? testResult.typedTextHistory : []
+                    model: testResult ? testResult.typedTextHistory.filter(function(h) {
+                            return h.actualTyped !== undefined && h.actualTyped !== ""
+                        })
+                    : []
                     
-
                     
                     MouseArea {
                         width: charDisplay.width
@@ -66,7 +69,7 @@ Rectangle {
                                 radius: 4
                             }
                             
-                            contentItem: Text {
+                            contentItem: TextWithFont {
                                 text: charTooltip.text
                                 color: themeManager.currentTheme.text
                                 font.pixelSize: 12
@@ -104,11 +107,10 @@ Rectangle {
                                 }
                             }
                             
-                            Text {
+                            TextWithFont {
                                 id: charDisplay
                                 text: modelData.actualTyped === " " ? "␣" : modelData.actualTyped
                                 font.pixelSize: 20
-                                font.family: "Monospace"
                                 
                                 // Color based on state - show what user typed
                                 color: {
@@ -148,7 +150,7 @@ Rectangle {
                     color: themeManager.currentTheme.correct
                     y: (parent.height - height) / 2
                 }
-                Text {
+                TextWithFont {
                     text: qsTr("Correct")
                     color: themeManager.currentTheme.textSecondary
                     font.pixelSize: 12
@@ -184,7 +186,7 @@ Rectangle {
                     }
                 }
                 
-                Text {
+                TextWithFont {
                     text: qsTr("Corrected")
                     color: themeManager.currentTheme.textSecondary
                     font.pixelSize: 12
@@ -203,7 +205,7 @@ Rectangle {
                     color: themeManager.currentTheme.incorrect
                     y: (parent.height - height) / 2
                 }
-                Text {
+                TextWithFont {
                     text: qsTr("Incorrect")
                     color: themeManager.currentTheme.textSecondary
                     font.pixelSize: 12
@@ -222,7 +224,7 @@ Rectangle {
                     color: themeManager.currentTheme.textSecondary
                     y: (parent.height - height) / 2
                 }
-                Text {
+                TextWithFont {
                     text: qsTr("Skipped")
                     color: themeManager.currentTheme.textSecondary
                     font.pixelSize: 12
@@ -234,7 +236,7 @@ Rectangle {
                 spacing: 5
                 height: 20
                 
-                Text {
+                TextWithFont {
                     text: qsTr("(Hover for word info)")
                     color: themeManager.currentTheme.textSecondary
                     font.pixelSize: 11

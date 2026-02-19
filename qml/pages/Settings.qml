@@ -54,7 +54,7 @@ Popup {
             Layout.fillWidth: true
             spacing: 10
             
-            Text {
+            TextWithFont {
                 text: qsTr("Settings")
                 font.pixelSize: 24
                 font.bold: true
@@ -67,11 +67,18 @@ Popup {
                 width: 32
                 height: 32
                 radius: 16
-                color: closeMouse.containsMouse ? themeManager.currentTheme.error : themeManager.currentTheme.surface
-                border.color: themeManager.currentTheme.border
+                color: closeMouse.containsMouse ? themeManager.currentTheme.background : themeManager.currentTheme.surface
+                border.color: closeMouse.containsMouse ? themeManager.currentTheme.incorrect : themeManager.currentTheme.border
                 border.width: 1
+
+                Behavior on color {
+                    ColorAnimation { duration: 150 }
+                }
+                Behavior on border.color {
+                    ColorAnimation { duration: 150 }
+                }
                 
-                Text {
+                TextWithFont {
                     anchors.centerIn: parent
                     text: "×"
                     font.pixelSize: 20
@@ -102,12 +109,12 @@ Popup {
                 anchors.margins: 8
                 spacing: 8
                 
-                Text {
+                TextWithFont {
                     text: "🔍"
                     font.pixelSize: 16
                 }
                 
-                Text {
+                TextWithFont {
                     id: searchDisplayText
                     Layout.fillWidth: true
                     text: searchField.text.length > 0 ? searchField.text : qsTr("Search settings...")
@@ -255,7 +262,7 @@ Popup {
                             border.color: themeManager.currentTheme.border
                             border.width: 1
                             
-                            Text {
+                            TextWithFont {
                                 anchors.centerIn: parent
                                 text: "←"
                                 font.pixelSize: 16
@@ -275,7 +282,7 @@ Popup {
                             }
                         }
                         
-                        Text {
+                        TextWithFont {
                             text: currentSettingName
                             font.pixelSize: 16
                             font.bold: true
@@ -356,7 +363,7 @@ Popup {
             radius: 4
             color: themeManager.currentTheme.surface
             
-            Text {
+            TextWithFont {
                 anchors.centerIn: parent
                 text: qsTr("Type to search • ESC: back/close • ↓↑: navigate • Enter: select • Del: clear search")
                 font.pixelSize: 10
@@ -449,6 +456,12 @@ Popup {
             icon: "🌐"
         })
         allSettingsModel.append({
+            key: "fontFamily",
+            name: qsTr("Font Family"),
+            description: qsTr("Global UI font"),
+            icon: "🔤"
+        })
+        allSettingsModel.append({
             key: "soundEnabled",
             name: qsTr("Sound"),
             description: qsTr("Enable or disable all sounds"),
@@ -458,7 +471,7 @@ Popup {
             key: "clickSoundVariant",
             name: qsTr("Click Sound Type"),
             description: qsTr("Keyboard sound profile"),
-            icon: "⌨️"
+            icon: "♪"
         })
         allSettingsModel.append({
             key: "soundVolume",
@@ -482,7 +495,7 @@ Popup {
             key: "about",
             name: qsTr("About"),
             description: qsTr("Application and developer information"),
-            icon: "ℹ️"
+            icon: "ⓘ"
         })
         
         // Refresh filtered list after populating
@@ -592,6 +605,27 @@ Popup {
                         label: translationManager.LanguageDisplayName(lang),
                         value: lang,
                         isSelected: configManager.uiLanguage === lang
+                    })
+                }
+                break
+                
+            case "fontFamily":
+                currentSettingName = qsTr("Font Family")
+                let fonts = [
+                    { name: "JetBrains Mono", value: "JetBrains Mono" },
+                    { name: "Cartograph CF", value: "Cartograph CF" },
+                    { name: "MesloLGS NF", value: "MesloLGS NF" },
+                    { name: "Monospace", value: "Monospace" }
+                ]
+                for (let font of fonts) {
+                    // Check if selected: for JetBrains Mono, also match empty string
+                    let isSelected = configManager.fontFamily === font.value || 
+                                   (font.value === "JetBrains Mono" && 
+                                    (configManager.fontFamily === "" || !configManager.fontFamily))
+                    currentOptionsModel.append({
+                        label: font.name,
+                        value: font.value,
+                        isSelected: isSelected
                     })
                 }
                 break
@@ -711,6 +745,9 @@ Popup {
                 break
             case "uiLanguage":
                 configManager.uiLanguage = value
+                break
+            case "fontFamily":
+                configManager.fontFamily = value
                 break
             case "soundEnabled":
                 configManager.soundEnabled = (value === "true")

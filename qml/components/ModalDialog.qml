@@ -30,7 +30,7 @@ Dialog {
         height: 60
         color: "transparent"
         
-        Text {
+        TextWithFont {
             anchors.centerIn: parent
             text: root.dialogTitle
             font.pixelSize: 20
@@ -43,7 +43,7 @@ Dialog {
         implicitHeight: contentText.implicitHeight + 40
         color: "transparent"
         
-        Text {
+        TextWithFont {
             id: contentText
             anchors.fill: parent
             anchors.margins: 20
@@ -77,7 +77,7 @@ Dialog {
                     border.color: themeManager.currentTheme.border
                 }
                 
-                contentItem: Text {
+                contentItem: TextWithFont {
                     text: parent.text
                     font.pixelSize: 14
                     color: themeManager.currentTheme.text
@@ -102,7 +102,7 @@ Dialog {
                     border.width: 0
                 }
                 
-                contentItem: Text {
+                contentItem: TextWithFont {
                     text: parent.text
                     font.pixelSize: 14
                     font.bold: true

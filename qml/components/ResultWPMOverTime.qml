@@ -43,7 +43,7 @@ Rectangle {
         anchors.margins: 20
         spacing: 10
         
-        Text {
+        TextWithFont {
             text: qsTr("WPM Over Time")
             color: themeManager.currentTheme.textSecondary
             font.pixelSize: 18
@@ -77,7 +77,7 @@ Rectangle {
                     radius: 4
                 }
                 
-                contentItem: Text {
+                contentItem: TextWithFont {
                     text: chartTooltip.text
                     color: themeManager.currentTheme.textSecondary
                     font.pixelSize: 12
@@ -133,7 +133,7 @@ Rectangle {
             }
             
             // Custom axis titles with theme colors
-            Text {
+            TextWithFont {
                 text: qsTr("Time (seconds)")
                 color: themeManager.currentTheme.textSecondary
                 font.pixelSize: 12
@@ -143,7 +143,7 @@ Rectangle {
                 anchors.bottomMargin: 5
             }
             
-            Text {
+            TextWithFont {
                 text: qsTr("WPM")
                 color: themeManager.currentTheme.textSecondary
                 font.pixelSize: 12

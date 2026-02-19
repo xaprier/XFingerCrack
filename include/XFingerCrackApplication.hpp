@@ -11,6 +11,7 @@ class WordGenerator;
 class TypingTest;
 class ThemeManager;
 class TestHistory;
+class FontManager;
 
 /**
  * @brief FingerCrack application implementation
@@ -76,6 +77,7 @@ class XFingerCrackApplication : public AbstractQmlApplication {
     TypingTest* m_typingTest;
     ThemeManager* m_themeManager;
     TestHistory* m_testHistory;
+    FontManager* m_fontManager;
 };
 
 #endif  // XFINGERCRACKAPPLICATION_HPP

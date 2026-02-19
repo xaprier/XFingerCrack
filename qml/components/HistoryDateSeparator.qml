@@ -32,7 +32,7 @@ Rectangle {
             border.width: 1
             border.color: themeManager.currentTheme.border
             
-            Text {
+            TextWithFont {
                 id: dateLabel
                 anchors.centerIn: parent
                 text: root.dateText
@@ -51,7 +51,7 @@ Rectangle {
             border.width: 1
             border.color: themeManager.currentTheme.border
             
-            Text {
+            TextWithFont {
                 id: avgText
                 anchors.centerIn: parent
                 text: root.dailyAvgWpm > 0 

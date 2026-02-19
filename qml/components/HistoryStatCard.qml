@@ -20,20 +20,20 @@ Rectangle {
         anchors.centerIn: parent
         spacing: 10
         
-        Text {
+        TextWithFont {
             text: root.icon
             font.pixelSize: 24
             Layout.alignment: Qt.AlignHCenter
         }
         
-        Text {
+        TextWithFont {
             text: root.title
             font.pixelSize: 12
             color: themeManager.currentTheme.textSecondary
             Layout.alignment: Qt.AlignHCenter
         }
         
-        Text {
+        TextWithFont {
             text: root.value
             font.pixelSize: 18
             font.bold: true

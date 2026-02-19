@@ -53,12 +53,12 @@ Rectangle {
             Layout.minimumWidth: 100
             spacing: 3
             
-            Text {
+            TextWithFont {
                 text: root.testTimestamp ? new Date(root.testTimestamp).toLocaleDateString() : ""
                 font.pixelSize: 11
                 color: themeManager.currentTheme.textSecondary
             }
-            Text {
+            TextWithFont {
                 text: root.testTimestamp ? Qt.formatTime(new Date(root.testTimestamp), "HH:mm") : ""
                 font.pixelSize: 16
                 font.bold: true
@@ -72,12 +72,12 @@ Rectangle {
             Layout.minimumWidth: 100
             spacing: 3
             
-            Text {
+            TextWithFont {
                 text: root.mode === "time" ? qsTr("Time") : qsTr("Words")
                 font.pixelSize: 11
                 color: themeManager.currentTheme.textSecondary
             }
-            Text {
+            TextWithFont {
                 text: root.mode === "time" 
                     ? root.testDuration + "s"
                     : root.words + " " + qsTr("words")
@@ -93,12 +93,12 @@ Rectangle {
             Layout.minimumWidth: 80
             spacing: 3
             
-            Text {
+            TextWithFont {
                 text: qsTr("WPM")
                 font.pixelSize: 11
                 color: themeManager.currentTheme.textSecondary
             }
-            Text {
+            TextWithFont {
                 text: root.wpmValue ? root.wpmValue.toString() : "0"
                 font.pixelSize: 20
                 font.bold: true
@@ -112,12 +112,12 @@ Rectangle {
             Layout.minimumWidth: 90
             spacing: 3
             
-            Text {
+            TextWithFont {
                 text: qsTr("Accuracy")
                 font.pixelSize: 11
                 color: themeManager.currentTheme.textSecondary
             }
-            Text {
+            TextWithFont {
                 text: root.accuracyValue ? root.accuracyValue.toFixed(1) + "%" : "0%"
                 font.pixelSize: 20
                 font.bold: true
@@ -131,12 +131,12 @@ Rectangle {
             Layout.minimumWidth: 80
             spacing: 3
             
-            Text {
+            TextWithFont {
                 text: qsTr("Correct")
                 font.pixelSize: 11
                 color: themeManager.currentTheme.textSecondary
             }
-            Text {
+            TextWithFont {
                 text: root.correct ? root.correct.toString() : "0"
                 font.pixelSize: 18
                 font.bold: true
@@ -150,12 +150,12 @@ Rectangle {
             Layout.minimumWidth: 80
             spacing: 3
 
-            Text {
+            TextWithFont {
                 text: qsTr("Incorrect")
                 font.pixelSize: 11
                 color: themeManager.currentTheme.textSecondary
             }
-            Text {
+            TextWithFont {
                 text: root.incorrect ? root.incorrect.toString() : "0"
                 font.pixelSize: 18
                 font.bold: true
@@ -190,7 +190,7 @@ Rectangle {
                 }
             }
             
-            contentItem: Text {
+            contentItem: TextWithFont {
                 text: parent.text
                 font: parent.font
                 horizontalAlignment: Text.AlignHCenter

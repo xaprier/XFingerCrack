@@ -14,7 +14,7 @@ ToolTip {
         radius: 6
     }
     
-    contentItem: Text {
+    contentItem: TextWithFont {
         text: root.text
         font.pixelSize: 12
         color: themeManager.currentTheme.text

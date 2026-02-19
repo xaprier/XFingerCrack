@@ -210,7 +210,7 @@ Item {
                 }
             }
             
-            contentItem: Text {
+            contentItem: TextWithFont {
                 text: parent.text
                 font.pixelSize: 14
                 color: themeManager.currentTheme.text

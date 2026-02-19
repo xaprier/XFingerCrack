@@ -33,7 +33,7 @@ Rectangle {
             Layout.maximumWidth: root.width < 600 ? root.width - 30 : -1
             spacing: 8
             
-            Text {
+            TextWithFont {
                 text: qsTr("Test Mode")
                 font.pixelSize: 12
                 font.bold: true
@@ -60,6 +60,7 @@ Rectangle {
                     }
                     
                     background: Rectangle {
+                        implicitHeight: 30
                         color: parent.checked ? themeManager.currentTheme.accent : themeManager.currentTheme.surface
                         radius: 6
                         border.width: 1
@@ -73,7 +74,7 @@ Rectangle {
                         }
                     }
                     
-                    contentItem: Text {
+                    contentItem: TextWithFont {
                         text: parent.text
                         font.pixelSize: 13
                         color: parent.checked ? themeManager.currentTheme.background : themeManager.currentTheme.text
@@ -98,6 +99,7 @@ Rectangle {
                     }
                     
                     background: Rectangle {
+                        implicitHeight: 30
                         color: parent.checked ? themeManager.currentTheme.accent : themeManager.currentTheme.surface
                         radius: 6
                         border.width: 1
@@ -111,7 +113,7 @@ Rectangle {
                         }
                     }
                     
-                    contentItem: Text {
+                    contentItem: TextWithFont {
                         text: parent.text
                         font.pixelSize: 13
                         color: parent.checked ? themeManager.currentTheme.background : themeManager.currentTheme.text
@@ -136,6 +138,7 @@ Rectangle {
                     }
                     
                     background: Rectangle {
+                        implicitHeight: 30
                         color: parent.checked ? themeManager.currentTheme.accent : themeManager.currentTheme.surface
                         radius: 6
                         border.width: 1
@@ -149,7 +152,7 @@ Rectangle {
                         }
                     }
                     
-                    contentItem: Text {
+                    contentItem: TextWithFont {
                         text: parent.text
                         font.pixelSize: 13
                         color: parent.checked ? themeManager.currentTheme.background : themeManager.currentTheme.text
@@ -166,7 +169,7 @@ Rectangle {
             Layout.maximumWidth: root.width < 600 ? root.width - 30 : -1
             spacing: 8
             
-            Text {
+            TextWithFont {
                 text: root.selectedModeFilter === "time" ? qsTr("Duration") : root.selectedModeFilter === "words" ? qsTr("Word Count") : qsTr("Test Length")
                 font.pixelSize: 12
                 font.bold: true
@@ -205,7 +208,7 @@ Rectangle {
                         }
                     }
                     
-                    contentItem: Text {
+                    contentItem: TextWithFont {
                         text: parent.text
                         font.pixelSize: 11
                         color: parent.checked ? themeManager.currentTheme.background : themeManager.currentTheme.text
@@ -245,7 +248,7 @@ Rectangle {
                             }
                         }
                         
-                        contentItem: Text {
+                        contentItem: TextWithFont {
                             text: parent.text
                             font.pixelSize: 11
                             color: parent.checked ? themeManager.currentTheme.background : themeManager.currentTheme.text
@@ -286,7 +289,7 @@ Rectangle {
                             }
                         }
                         
-                        contentItem: Text {
+                        contentItem: TextWithFont {
                             text: parent.text
                             font.pixelSize: 11
                             color: parent.checked ? themeManager.currentTheme.background : themeManager.currentTheme.text

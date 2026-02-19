@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en_US" sourcelanguage="en">
+<TS version="2.1" language="en_US" sourcelanguage="en_US">
 <context>
     <name>About</name>
     <message>
@@ -33,7 +33,7 @@
         <location filename="../../build/XFingerCrack/qml/pages/About.qml" line="135"/>
         <location filename="../../qml/pages/About.qml" line="135"/>
         <source>%1 is a modern, feature-rich typing speed test application built with Qt 6.9. It helps you improve your typing skills by providing accurate WPM (Words Per Minute) measurements, comprehensive statistics, and a customizable interface.</source>
-        <translation type="unfinished"></translation>
+        <translation>% 1 is a modern, feature-rich typing speed test application built with Qt 6.9. It helps you improve your typing skills by providing accurate WPM (Words Per Minute) measurements, comprehensive statistics, and a customizable interface.</translation>
     </message>
     <message>
         <location filename="../../build/XFingerCrack/qml/pages/About.qml" line="149"/>
@@ -312,7 +312,7 @@
         <location filename="../../build/XFingerCrack/qml/components/HistoryRecentTestDateSeparator.qml" line="58"/>
         <location filename="../../qml/components/HistoryRecentTestDateSeparator.qml" line="58"/>
         <source>Avg: </source>
-        <translation type="unfinished">Avg: </translation>
+        <translation>Avg: </translation>
     </message>
 </context>
 <context>
@@ -321,49 +321,49 @@
         <location filename="../../build/XFingerCrack/qml/components/HistoryRecentTestItem.qml" line="76"/>
         <location filename="../../qml/components/HistoryRecentTestItem.qml" line="76"/>
         <source>Time</source>
-        <translation type="unfinished">Time</translation>
+        <translation>Time</translation>
     </message>
     <message>
         <location filename="../../build/XFingerCrack/qml/components/HistoryRecentTestItem.qml" line="76"/>
         <location filename="../../qml/components/HistoryRecentTestItem.qml" line="76"/>
         <source>Words</source>
-        <translation type="unfinished">Words</translation>
+        <translation>Words</translation>
     </message>
     <message>
         <location filename="../../build/XFingerCrack/qml/components/HistoryRecentTestItem.qml" line="83"/>
         <location filename="../../qml/components/HistoryRecentTestItem.qml" line="83"/>
         <source>words</source>
-        <translation type="unfinished">words</translation>
+        <translation>words</translation>
     </message>
     <message>
         <location filename="../../build/XFingerCrack/qml/components/HistoryRecentTestItem.qml" line="97"/>
         <location filename="../../qml/components/HistoryRecentTestItem.qml" line="97"/>
         <source>WPM</source>
-        <translation type="unfinished">WPM</translation>
+        <translation>WPM</translation>
     </message>
     <message>
         <location filename="../../build/XFingerCrack/qml/components/HistoryRecentTestItem.qml" line="116"/>
         <location filename="../../qml/components/HistoryRecentTestItem.qml" line="116"/>
         <source>Accuracy</source>
-        <translation type="unfinished">Accuracy</translation>
+        <translation>Accuracy</translation>
     </message>
     <message>
         <location filename="../../build/XFingerCrack/qml/components/HistoryRecentTestItem.qml" line="135"/>
         <location filename="../../qml/components/HistoryRecentTestItem.qml" line="135"/>
         <source>Correct</source>
-        <translation type="unfinished">Correct</translation>
+        <translation>Correct</translation>
     </message>
     <message>
         <location filename="../../build/XFingerCrack/qml/components/HistoryRecentTestItem.qml" line="154"/>
         <location filename="../../qml/components/HistoryRecentTestItem.qml" line="154"/>
         <source>Incorrect</source>
-        <translation type="unfinished">Incorrect</translation>
+        <translation>Incorrect</translation>
     </message>
     <message>
         <location filename="../../build/XFingerCrack/qml/components/HistoryRecentTestItem.qml" line="179"/>
         <location filename="../../qml/components/HistoryRecentTestItem.qml" line="179"/>
         <source>Delete this test</source>
-        <translation type="unfinished">Delete this test</translation>
+        <translation>Delete this test</translation>
     </message>
 </context>
 <context>
@@ -755,37 +755,37 @@
         <location filename="../../build/XFingerCrack/qml/components/ResultSummary.qml" line="27"/>
         <location filename="../../qml/components/ResultSummary.qml" line="27"/>
         <source>WPM</source>
-        <translation type="unfinished">WPM</translation>
+        <translation>WPM</translation>
     </message>
     <message>
         <location filename="../../build/XFingerCrack/qml/components/ResultSummary.qml" line="48"/>
         <location filename="../../qml/components/ResultSummary.qml" line="48"/>
         <source>Accuracy</source>
-        <translation type="unfinished">Accuracy</translation>
+        <translation>Accuracy</translation>
     </message>
     <message>
         <location filename="../../build/XFingerCrack/qml/components/ResultSummary.qml" line="69"/>
         <location filename="../../qml/components/ResultSummary.qml" line="69"/>
         <source>Correct Keys</source>
-        <translation type="unfinished">Correct Keys</translation>
+        <translation>Correct Keys</translation>
     </message>
     <message>
         <location filename="../../build/XFingerCrack/qml/components/ResultSummary.qml" line="90"/>
         <location filename="../../qml/components/ResultSummary.qml" line="90"/>
         <source>Wrong Keys</source>
-        <translation type="unfinished">Wrong Keys</translation>
+        <translation>Wrong Keys</translation>
     </message>
     <message>
         <location filename="../../build/XFingerCrack/qml/components/ResultSummary.qml" line="111"/>
         <location filename="../../qml/components/ResultSummary.qml" line="111"/>
         <source>Skipped Keys</source>
-        <translation type="unfinished">Skipped Keys</translation>
+        <translation>Skipped Keys</translation>
     </message>
     <message>
         <location filename="../../build/XFingerCrack/qml/components/ResultSummary.qml" line="132"/>
         <location filename="../../qml/components/ResultSummary.qml" line="132"/>
         <source>Corrected Keys</source>
-        <translation type="unfinished">Corrected Keys</translation>
+        <translation>Corrected Keys</translation>
     </message>
 </context>
 <context>
@@ -794,37 +794,37 @@
         <location filename="../../build/XFingerCrack/qml/components/ResultTypedText.qml" line="20"/>
         <location filename="../../qml/components/ResultTypedText.qml" line="20"/>
         <source>Typed Text</source>
-        <translation type="unfinished">Typed Text</translation>
+        <translation>Typed Text</translation>
     </message>
     <message>
         <location filename="../../build/XFingerCrack/qml/components/ResultTypedText.qml" line="152"/>
         <location filename="../../qml/components/ResultTypedText.qml" line="152"/>
         <source>Correct</source>
-        <translation type="unfinished">Correct</translation>
+        <translation>Correct</translation>
     </message>
     <message>
         <location filename="../../build/XFingerCrack/qml/components/ResultTypedText.qml" line="188"/>
         <location filename="../../qml/components/ResultTypedText.qml" line="188"/>
         <source>Corrected</source>
-        <translation type="unfinished">Corrected</translation>
+        <translation>Corrected</translation>
     </message>
     <message>
         <location filename="../../build/XFingerCrack/qml/components/ResultTypedText.qml" line="207"/>
         <location filename="../../qml/components/ResultTypedText.qml" line="207"/>
         <source>Incorrect</source>
-        <translation type="unfinished">Incorrect</translation>
+        <translation>Incorrect</translation>
     </message>
     <message>
         <location filename="../../build/XFingerCrack/qml/components/ResultTypedText.qml" line="226"/>
         <location filename="../../qml/components/ResultTypedText.qml" line="226"/>
         <source>Skipped</source>
-        <translation type="unfinished">Skipped</translation>
+        <translation>Skipped</translation>
     </message>
     <message>
         <location filename="../../build/XFingerCrack/qml/components/ResultTypedText.qml" line="238"/>
         <location filename="../../qml/components/ResultTypedText.qml" line="238"/>
         <source>(Hover for word info)</source>
-        <translation type="unfinished">(Hover for word info)</translation>
+        <translation>(Hover for word info)</translation>
     </message>
 </context>
 <context>
@@ -833,19 +833,19 @@
         <location filename="../../build/XFingerCrack/qml/components/ResultWPMOverTime.qml" line="47"/>
         <location filename="../../qml/components/ResultWPMOverTime.qml" line="47"/>
         <source>WPM Over Time</source>
-        <translation type="unfinished">WPM Over Time</translation>
+        <translation>WPM Over Time</translation>
     </message>
     <message>
         <location filename="../../build/XFingerCrack/qml/components/ResultWPMOverTime.qml" line="137"/>
         <location filename="../../qml/components/ResultWPMOverTime.qml" line="137"/>
         <source>Time (seconds)</source>
-        <translation type="unfinished">Time (seconds)</translation>
+        <translation>Time (seconds)</translation>
     </message>
     <message>
         <location filename="../../build/XFingerCrack/qml/components/ResultWPMOverTime.qml" line="147"/>
         <location filename="../../qml/components/ResultWPMOverTime.qml" line="147"/>
         <source>WPM</source>
-        <translation type="unfinished">WPM</translation>
+        <translation>WPM</translation>
     </message>
 </context>
 <context>
@@ -1290,7 +1290,7 @@
         <location filename="../../build/XFingerCrack/qml/main.qml" line="14"/>
         <location filename="../../qml/main.qml" line="14"/>
         <source>%1 - Typing Test</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 - Typing Test</translation>
     </message>
 </context>
 </TS>

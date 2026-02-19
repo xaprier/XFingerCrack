@@ -57,7 +57,7 @@ Item {
                     Column {
                         spacing: 3
                         Layout.preferredWidth: 250
-                        Text {
+                        TextWithFont {
                             text: qsTr("Test Complete!")
                             color: themeManager.currentTheme.accent
                             font.pixelSize: 22
@@ -65,7 +65,7 @@ Item {
                             width: parent.width
                             horizontalAlignment: Text.AlignHCenter
                         }
-                        Text {
+                        TextWithFont {
                             text: (stats && stats.totalTime) ? (stats.totalTime / 1000).toFixed(1) + "s" : "0.0s"
                             color: themeManager.currentTheme.textSecondary
                             font.pixelSize: 12
@@ -99,7 +99,7 @@ Item {
                 anchors.horizontalCenter: parent.horizontalCenter
                 spacing: 15
                 
-                Text {
+                TextWithFont {
                     text: qsTr("Press Tab+Enter restart")
                     color: themeManager.currentTheme.textSecondary
                     font.pixelSize: 14
@@ -148,7 +148,7 @@ Item {
                             }
                         }
                         
-                        contentItem: Text {
+                        contentItem: TextWithFont {
                             text: parent.text
                             color: themeManager.currentTheme.background
                             font.pixelSize: 16

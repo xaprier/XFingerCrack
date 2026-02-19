@@ -23,14 +23,14 @@ Rectangle {
         Column {
             width: Math.max(120, summaryFlow.width < 700 ? (summaryFlow.width - 40) / 2 : (summaryFlow.width - 100) / 6)
             spacing: 5
-            Text {
+            TextWithFont {
                 text: qsTr("WPM")
                 color: themeManager.currentTheme.textSecondary
                 font.pixelSize: 12
                 width: parent.width
                 horizontalAlignment: Text.AlignHCenter
             }
-            Text {
+            TextWithFont {
                 text: (stats && stats.finalWpm !== undefined) ? stats.finalWpm : 0
                 color: themeManager.currentTheme.accent
                 font.pixelSize: 32
@@ -44,14 +44,14 @@ Rectangle {
         Column {
             width: Math.max(120, summaryFlow.width < 700 ? (summaryFlow.width - 40) / 2 : (summaryFlow.width - 100) / 6)
             spacing: 5
-            Text {
+            TextWithFont {
                 text: qsTr("Accuracy")
                 color: themeManager.currentTheme.textSecondary
                 font.pixelSize: 12
                 width: parent.width
                 horizontalAlignment: Text.AlignHCenter
             }
-            Text {
+            TextWithFont {
                 text: (stats && stats.accuracy !== undefined) ? stats.accuracy.toFixed(1) + "%" : "0.0%"
                 color: themeManager.currentTheme.text
                 font.pixelSize: 32
@@ -65,14 +65,14 @@ Rectangle {
         Column {
             width: Math.max(120, summaryFlow.width < 700 ? (summaryFlow.width - 40) / 2 : (summaryFlow.width - 100) / 6)
             spacing: 5
-            Text {
+            TextWithFont {
                 text: qsTr("Correct Keys")
                 color: themeManager.currentTheme.textSecondary
                 font.pixelSize: 12
                 width: parent.width
                 horizontalAlignment: Text.AlignHCenter
             }
-            Text {
+            TextWithFont {
                 text: (stats && stats.correctCharacters !== undefined) ? stats.correctCharacters : 0
                 color: themeManager.currentTheme.correct
                 font.pixelSize: 32
@@ -86,14 +86,14 @@ Rectangle {
         Column {
             width: Math.max(120, summaryFlow.width < 700 ? (summaryFlow.width - 40) / 2 : (summaryFlow.width - 100) / 6)
             spacing: 5
-            Text {
+            TextWithFont {
                 text: qsTr("Wrong Keys")
                 color: themeManager.currentTheme.textSecondary
                 font.pixelSize: 12
                 width: parent.width
                 horizontalAlignment: Text.AlignHCenter
             }
-            Text {
+            TextWithFont {
                 text: (stats && stats.incorrectCharacters !== undefined) ? stats.incorrectCharacters : 0
                 color: themeManager.currentTheme.incorrect
                 font.pixelSize: 32
@@ -107,14 +107,14 @@ Rectangle {
         Column {
             width: Math.max(120, summaryFlow.width < 700 ? (summaryFlow.width - 40) / 2 : (summaryFlow.width - 100) / 6)
             spacing: 5
-            Text {
+            TextWithFont {
                 text: qsTr("Skipped Keys")
                 color: themeManager.currentTheme.textSecondary
                 font.pixelSize: 12
                 width: parent.width
                 horizontalAlignment: Text.AlignHCenter
             }
-            Text {
+            TextWithFont {
                 text: (stats && stats.skippedCharacters !== undefined) ? stats.skippedCharacters : 0
                 color: themeManager.currentTheme.textSecondary
                 font.pixelSize: 32
@@ -128,14 +128,14 @@ Rectangle {
         Column {
             width: Math.max(120, summaryFlow.width < 700 ? (summaryFlow.width - 40) / 2 : (summaryFlow.width - 100) / 6)
             spacing: 5
-            Text {
+            TextWithFont {
                 text: qsTr("Corrected Keys")
                 color: themeManager.currentTheme.textSecondary
                 font.pixelSize: 12
                 width: parent.width
                 horizontalAlignment: Text.AlignHCenter
             }
-            Text {
+            TextWithFont {
                 text: (stats && stats.correctedCharacters !== undefined) ? stats.correctedCharacters : 0
                 color: themeManager.currentTheme.accent
                 font.pixelSize: 32

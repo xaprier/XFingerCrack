@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import "../components"
 
 Popup {
     id: aboutPopup
@@ -33,7 +34,7 @@ Popup {
             Layout.fillWidth: true
             spacing: 10
             
-            Text {
+            TextWithFont {
                 text: qsTr("About")
                 font.pixelSize: 24
                 font.bold: true
@@ -49,7 +50,7 @@ Popup {
                 border.color: closeMouse.containsMouse ? themeManager.currentTheme.incorrect : themeManager.currentTheme.border
                 border.width: 1
                 
-                Text {
+                TextWithFont {
                     anchors.centerIn: parent
                     text: "×"
                     font.pixelSize: 20
@@ -79,22 +80,34 @@ Popup {
         // Logo section
         Item {
             Layout.fillWidth: true
-            Layout.preferredHeight: 80
-            Layout.margins: 15
+            Layout.preferredHeight: 180
+            Layout.margins: 10
             
             ColumnLayout {
                 anchors.centerIn: parent
-                spacing: 10
+                spacing: 5
                 
-                Text {
+                Image {
+                    id: logoImage
+                    source: "qrc:/XFingerCrack.png"
+                    Layout.preferredHeight: 180
+                    Layout.preferredWidth: 180
+                    fillMode: Image.PreserveAspectFit
+                    Layout.alignment: Qt.AlignHCenter
+                    visible: status === Image.Ready
+                    smooth: true
+                }
+                
+                TextWithFont {
                     text: appInfo.applicationName
                     font.pixelSize: 28
                     font.bold: true
                     color: themeManager.currentTheme.accent
                     Layout.alignment: Qt.AlignHCenter
+                    visible: logoImage.status !== Image.Ready
                 }
                 
-                Text {
+                TextWithFont {
                     text: qsTr("Version") + " " + appInfo.version
                     font.pixelSize: 14
                     color: themeManager.currentTheme.textSecondary
@@ -114,9 +127,11 @@ Popup {
             Layout.fillWidth: true
             Layout.fillHeight: true
             clip: true
+            ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+            contentWidth: availableWidth
             
             ColumnLayout {
-                width: parent.parent.width
+                width: parent.width
                 spacing: 20
                 
                 // About the app
@@ -124,15 +139,15 @@ Popup {
                     Layout.fillWidth: true
                     spacing: 8
                     
-                    Text {
+                    TextWithFont {
                         text: qsTr("About the Application")
                         font.pixelSize: 16
                         font.bold: true
                         color: themeManager.currentTheme.text
                     }
                     
-                    Text {
-                        text: qsTr("%1 is a modern, feature-rich typing speed test application built with Qt 6.9. It helps you improve your typing skills by providing accurate WPM (Words Per Minute) measurements, comprehensive statistics, and a customizable interface.").arg(appInfo.applicationName)
+                    TextWithFont {
+                        text: qsTr("%1 is a modern, feature-rich typing speed test application built with Qt. It helps you improve your typing skills by providing accurate WPM (Words Per Minute) measurements, comprehensive statistics, and a customizable interface.").arg(appInfo.applicationName)
                         font.pixelSize: 13
                         color: themeManager.currentTheme.textSecondary
                         wrapMode: Text.WordWrap
@@ -145,7 +160,7 @@ Popup {
                     Layout.fillWidth: true
                     spacing: 8
                     
-                    Text {
+                    TextWithFont {
                         text: qsTr("Features")
                         font.pixelSize: 16
                         font.bold: true
@@ -167,12 +182,12 @@ Popup {
                                 qsTr("⚙️ Comprehensive settings with quick access")
                             ]
                             
-                            Text {
+                            TextWithFont {
                                 text: modelData
                                 font.pixelSize: 12
                                 color: themeManager.currentTheme.textSecondary
                                 wrapMode: Text.WordWrap
-                                width: parent.parent.width
+                                width: parent.width
                             }
                         }
                     }
@@ -183,14 +198,14 @@ Popup {
                     Layout.fillWidth: true
                     spacing: 8
                     
-                    Text {
+                    TextWithFont {
                         text: qsTr("Developer")
                         font.pixelSize: 16
                         font.bold: true
                         color: themeManager.currentTheme.text
                     }
                     
-                    Text {
+                    TextWithFont {
                         text: qsTr("Developed with ❤️ by xaprier")
                         font.pixelSize: 13
                         color: themeManager.currentTheme.textSecondary
@@ -208,7 +223,7 @@ Popup {
                             border.color: themeManager.currentTheme.border
                             border.width: 1
                             
-                            Text {
+                            TextWithFont {
                                 anchors.centerIn: parent
                                 text: "GitHub"
                                 font.pixelSize: 12
@@ -231,14 +246,14 @@ Popup {
                     Layout.fillWidth: true
                     spacing: 8
                     
-                    Text {
+                    TextWithFont {
                         text: qsTr("Built With")
                         font.pixelSize: 16
                         font.bold: true
                         color: themeManager.currentTheme.text
                     }
                     
-                    Text {
+                    TextWithFont {
                         text: "Qt " + appInfo.qtVersion + " • QML • C++17 • CMake"
                         font.pixelSize: 13
                         color: themeManager.currentTheme.textSecondary
@@ -254,7 +269,7 @@ Popup {
         }
         
         // Footer
-        Text {
+        TextWithFont {
             text: qsTr("Press ESC to close")
             font.pixelSize: 11
             color: themeManager.currentTheme.textSecondary

@@ -1,14 +1,25 @@
 # XFingerCrack - Typing Test Application
 
 <p align="center">
-  <a href="https://github.com/xaprier/XFakeContrib/blob/main/LICENSE" target="blank">
-    <img src="https://img.shields.io/github/license/xaprier/XFakeContrib" alt="license" />
+  <a href="https://github.com/xaprier/XFingerCrack/blob/main/LICENSE" target="blank">
+    <img src="https://img.shields.io/github/license/xaprier/XFingerCrack" alt="license" />
+  </a>
+  <a href="https://github.com/xaprier/XFingerCrack/actions" target="blank">
+    <img src="https://img.shields.io/github/actions/workflow/status/xaprier/XFingerCrack/release.yml?branch=main" alt="build status" />
+  </a>
+  <a href="https://xaprier.github.io/XFingerCrack/" target="blank">
+    <img src="https://img.shields.io/badge/docs-doxygen-blue.svg" alt="documentation" />
+  </a>
+  <a href="https://github.com/xaprier/XFingerCrack/releases" target="blank">
+    <img src="https://img.shields.io/github/v/release/xaprier/XFingerCrack" alt="latest release" />
   </a>
 </p>
 
 ## Overview
 
 XFingerCrack is a modern, feature-rich typing test application built with Qt6 and QML. It provides comprehensive metrics for measuring and improving typing speed and accuracy, with support for multiple languages, customizable themes, and detailed performance analytics. Inspired by [MonkeyType](https://github.com/monkeytypegame/monkeytype)
+
+📚 **[View API Documentation](https://xaprier.github.io/fingercrack/)**
 
 ## Features
 

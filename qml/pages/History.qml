@@ -72,7 +72,7 @@ Item {
                             }
                         }
                         
-                        contentItem: Text {
+                        contentItem: TextWithFont {
                             text: parent.text
                             font: parent.font
                             color: themeManager.currentTheme.text
@@ -81,7 +81,7 @@ Item {
                         }
                     }
                     
-                    Text {
+                    TextWithFont {
                         text: qsTr("Test History")
                         font.pixelSize: 32
                         font.bold: true
@@ -113,7 +113,7 @@ Item {
                             }
                         }
                         
-                        contentItem: Text {
+                        contentItem: TextWithFont {
                             text: parent.text
                             font: parent.font
                             color: themeManager.currentTheme.text
@@ -157,7 +157,7 @@ Item {
                             ColorAnimation { duration: 150 }
                         }
                     }
-                    contentItem: Text {
+                    contentItem: TextWithFont {
                         text: parent.text
                         font.pixelSize: 14
                         color: themeManager.currentTheme.text
@@ -179,7 +179,7 @@ Item {
                             ColorAnimation { duration: 150 }
                         }
                     }
-                    contentItem: Text {
+                    contentItem: TextWithFont {
                         text: parent.text
                         font.pixelSize: 14
                         color: themeManager.currentTheme.text
@@ -201,7 +201,7 @@ Item {
                             ColorAnimation { duration: 150 }
                         }
                     }
-                    contentItem: Text {
+                    contentItem: TextWithFont {
                         text: parent.text
                         font.pixelSize: 14
                         color: themeManager.currentTheme.text

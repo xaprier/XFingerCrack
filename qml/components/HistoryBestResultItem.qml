@@ -33,14 +33,14 @@ Rectangle {
             Layout.preferredWidth: 1
             spacing: 3
             
-            Text {
+            TextWithFont {
                 text: qsTr("Rank")
                 font.pixelSize: 10
                 color: themeManager.currentTheme.textSecondary
                 width: parent.width
                 horizontalAlignment: Text.AlignHCenter
             }
-            Text {
+            TextWithFont {
                 text: "#" + root.rank
                 font.pixelSize: 18
                 font.bold: true
@@ -56,14 +56,14 @@ Rectangle {
             Layout.preferredWidth: 1
             spacing: 3
             
-            Text {
+            TextWithFont {
                 text: root.isTimeBased ? qsTr("Duration") : qsTr("Words")
                 font.pixelSize: 10
                 color: themeManager.currentTheme.textSecondary
                 width: parent.width
                 horizontalAlignment: Text.AlignHCenter
             }
-            Text {
+            TextWithFont {
                 text: root.isTimeBased ? (root.duration + "s") : root.wordCount.toString()
                 font.pixelSize: 14
                 font.bold: true
@@ -79,14 +79,14 @@ Rectangle {
             Layout.preferredWidth: 1
             spacing: 3
             
-            Text {
+            TextWithFont {
                 text: qsTr("WPM")
                 font.pixelSize: 10
                 color: themeManager.currentTheme.textSecondary
                 width: parent.width
                 horizontalAlignment: Text.AlignHCenter
             }
-            Text {
+            TextWithFont {
                 text: root.wpm.toString()
                 font.pixelSize: 18
                 font.bold: true
@@ -102,14 +102,14 @@ Rectangle {
             Layout.preferredWidth: 1
             spacing: 3
             
-            Text {
+            TextWithFont {
                 text: qsTr("Accuracy")
                 font.pixelSize: 10
                 color: themeManager.currentTheme.textSecondary
                 width: parent.width
                 horizontalAlignment: Text.AlignHCenter
             }
-            Text {
+            TextWithFont {
                 text: root.accuracy.toFixed(1) + "%"
                 font.pixelSize: 18
                 font.bold: true
@@ -125,14 +125,14 @@ Rectangle {
             Layout.preferredWidth: 1
             spacing: 3
             
-            Text {
+            TextWithFont {
                 text: qsTr("Date")
                 font.pixelSize: 10
                 color: themeManager.currentTheme.textSecondary
                 width: parent.width
                 horizontalAlignment: Text.AlignHCenter
             }
-            Text {
+            TextWithFont {
                 text: root.timestamp.toLocaleDateString()
                 font.pixelSize: 12
                 color: themeManager.currentTheme.textSecondary

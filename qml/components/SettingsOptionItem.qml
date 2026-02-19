@@ -42,14 +42,14 @@ Rectangle {
         anchors.rightMargin: 12
         spacing: 10
         
-        Text {
+        TextWithFont {
             text: root.label
             font.pixelSize: 13
             color: themeManager.currentTheme.text
             Layout.fillWidth: true
         }
         
-        Text {
+        TextWithFont {
             text: root.isSelected ? "✓" : ""
             font.pixelSize: 16
             color: themeManager.currentTheme.accent

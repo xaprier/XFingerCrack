@@ -69,7 +69,7 @@ Item {
                 }
             }
             
-            Text {
+            TextWithFont {
                 text: root.text
                 font.pixelSize: 16
                 color: root.textColor

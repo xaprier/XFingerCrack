@@ -20,7 +20,7 @@ Rectangle {
         anchors.margins: 20
         spacing: 15
         
-        Text {
+        TextWithFont {
             text: root.title
             font.pixelSize: 18
             font.bold: true
@@ -39,14 +39,14 @@ Rectangle {
                 Column {
                     spacing: 5
                     
-                    Text {
+                    TextWithFont {
                         text: qsTr("Average WPM")
                         font.pixelSize: 12
                         color: themeManager.currentTheme.textSecondary
                         anchors.horizontalCenter: parent.horizontalCenter
                     }
                     
-                    Text {
+                    TextWithFont {
                         text: {
                             var stats = testHistory.GetAverageStats(root.limit)
                             return stats && stats.avgWpm ? Math.round(stats.avgWpm).toString() : "0"
@@ -61,14 +61,14 @@ Rectangle {
                 Column {
                     spacing: 5
                     
-                    Text {
+                    TextWithFont {
                         text: qsTr("Average Accuracy")
                         font.pixelSize: 12
                         color: themeManager.currentTheme.textSecondary
                         anchors.horizontalCenter: parent.horizontalCenter
                     }
                     
-                    Text {
+                    TextWithFont {
                         text: {
                             var stats = testHistory.GetAverageStats(root.limit)
                             return stats && stats.avgAccuracy ? stats.avgAccuracy.toFixed(1) + "%" : "0%"

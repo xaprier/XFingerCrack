@@ -18,21 +18,22 @@ Rectangle {
     property string key: ""
     property bool isCurrentItem: false
     property int index: -1
+    property string itemColor: themeManager.currentTheme.surface
     
     // Signals
     signal clicked()
     
     // Dimensions
     width: parent ? parent.width : 200
-    height: 45
+    height: Math.max(45, contentLayout.implicitHeight + 20)
     radius: 4
     
     // Colors
-    color: isCurrentItem ? themeManager.currentTheme.accent : 
-           (mouseArea.containsMouse ? themeManager.currentTheme.surface : "transparent")
+    color: isCurrentItem ? themeManager.currentTheme.accent : itemColor
     
     // Content layout
     RowLayout {
+        id: contentLayout
         anchors.fill: parent
         anchors.leftMargin: 10
         anchors.rightMargin: 10
@@ -43,10 +44,11 @@ Rectangle {
             Layout.preferredWidth: 30
             Layout.preferredHeight: 30
             
-            Text {
+            TextWithFont {
                 anchors.centerIn: parent
                 text: root.icon
                 font.pixelSize: 18
+                color: root.isCurrentItem ? themeManager.currentTheme.surface : themeManager.currentTheme.accent
             }
         }
         
@@ -55,7 +57,7 @@ Rectangle {
             Layout.fillWidth: true
             spacing: 2
             
-            Text {
+            TextWithFont {
                 text: root.name
                 font.pixelSize: 14
                 font.bold: true
@@ -63,7 +65,7 @@ Rectangle {
                 Layout.fillWidth: true
             }
             
-            Text {
+            TextWithFont {
                 text: root.description
                 font.pixelSize: 11
                 color: root.isCurrentItem ? themeManager.currentTheme.background : themeManager.currentTheme.textSecondary
@@ -78,7 +80,7 @@ Rectangle {
             Layout.preferredWidth: 20
             Layout.preferredHeight: 30
             
-            Text {
+            TextWithFont {
                 anchors.centerIn: parent
                 text: "›"
                 font.pixelSize: 20

@@ -47,51 +47,39 @@ set(PROJECT_SOURCES
     ${CPP_FILES}
 )
 
-# HANDLE TRANSLATION FILES
-set(LANGS tr_TR en_US de_DE)
-set(QM_FILES "")
-foreach(LANG ${LANGS})
-    qt_create_translation(QM_FILE ${CMAKE_SOURCE_DIR} ${CMAKE_SOURCE_DIR}/resources/translations/translation_${LANG}.ts)
-    list(APPEND QM_FILES ${QM_FILE})
-endforeach()
 
-foreach(QM_FILE ${QM_FILES})
-    if(EXISTS ${QM_FILE})
-        configure_file(${QM_FILE} ${CMAKE_SOURCE_DIR}/resources/translations COPYONLY)
-    else()
-        list(APPEND PROJECT_SOURCES ${TS_FILES} ${QM_FILES})
-    endif()
-endforeach()
+
+# Add Windows icon resource
+if(WIN32)
+    list(APPEND PROJECT_SOURCES resources/icon.rc)
+endif()
 
 qt_add_executable(${PROJECT_NAME}
     ${PROJECT_SOURCES}
     resources/resources.qrc
 )
 
-# Set Qt policies to suppress warnings
-qt_policy(SET QTP0001 NEW)
-qt_policy(SET QTP0002 NEW)
-qt_policy(SET QTP0003 NEW)
-qt_policy(SET QTP0004 NEW)
+# HANDLE TRANSLATION FILES
+set(LANGS tr_TR en_US de_DE)
 
-# Collect QML files with relative paths
-file(GLOB QML_FILES_ROOT qml/*.qml)
-file(GLOB_RECURSE QML_FILES_SUBDIRS qml/**/*.qml)
-set(QML_FILES_ABSOLUTE ${QML_FILES_ROOT} ${QML_FILES_SUBDIRS})
-set(QML_FILES "")
-foreach(QML_FILE ${QML_FILES_ABSOLUTE})
-    file(RELATIVE_PATH QML_FILE_REL ${CMAKE_CURRENT_SOURCE_DIR} ${QML_FILE})
-    list(APPEND QML_FILES ${QML_FILE_REL})
+set(TS_FILES "")
+foreach(LANG ${LANGS})
+    list(APPEND TS_FILES
+        ${CMAKE_SOURCE_DIR}/resources/translations/translation_${LANG}.ts
+    )
 endforeach()
 
-qt_add_qml_module(${PROJECT_NAME}
-    URI XFingerCrack
-    VERSION 1.0
-    QML_FILES
-        ${QML_FILES}
-    NO_CACHEGEN
-    NO_LINT
+qt_add_translations(${PROJECT_NAME}
+    TS_FILES ${TS_FILES}
 )
+
+# Set Qt policies to suppress warnings (only if available in Qt 6.5+)
+if(COMMAND qt_policy)
+    qt_policy(SET QTP0001 NEW)
+    qt_policy(SET QTP0002 NEW)
+    qt_policy(SET QTP0003 NEW)
+    qt_policy(SET QTP0004 NEW)
+endif()
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
     Qt6::Core
@@ -120,8 +108,23 @@ install(TARGETS ${PROJECT_NAME}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
 
-# Testing
-option(BUILD_TESTS "Build unit tests" ON)
+# Linux Desktop Integration
+if(UNIX AND NOT APPLE)
+    install(FILES resources/XFingerCrack.desktop
+        DESTINATION share/applications
+    )
+    install(FILES resources/XFingerCrack.png
+        DESTINATION share/icons/hicolor/512x512/apps
+        RENAME XFingerCrack.png
+    )
+endif()
+
+# Testing - Enable tests only in Debug mode
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    option(BUILD_TESTS "Build unit tests" ON)
+else()
+    option(BUILD_TESTS "Build unit tests" OFF)
+endif()
 
 if(BUILD_TESTS)
     enable_testing()
@@ -193,8 +196,11 @@ if(BUILD_TESTS)
     )
 endif()
 
-file(CREATE_LINK
-  "${CMAKE_BINARY_DIR}/compile_commands.json"
-  "${CMAKE_SOURCE_DIR}/compile_commands.json"
-  SYMBOLIC
-)
+# Only create symlink if build directory is different from source directory
+if(NOT CMAKE_BINARY_DIR STREQUAL CMAKE_SOURCE_DIR)
+    file(CREATE_LINK
+      "${CMAKE_BINARY_DIR}/compile_commands.json"
+      "${CMAKE_SOURCE_DIR}/compile_commands.json"
+      SYMBOLIC
+    )
+endif()
