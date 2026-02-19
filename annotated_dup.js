@@ -6,6 +6,7 @@ var annotated_dup =
     [ "CharacterHistory", "structCharacterHistory.html", "structCharacterHistory" ],
     [ "CharacterStats", "structCharacterStats.html", "structCharacterStats" ],
     [ "ConfigManager", "classConfigManager.html", "classConfigManager" ],
+    [ "FontManager", "classFontManager.html", "classFontManager" ],
     [ "TestHistory", "classTestHistory.html", "classTestHistory" ],
     [ "TestResult", "classTestResult.html", "classTestResult" ],
     [ "TestStatistics", "structTestStatistics.html", "structTestStatistics" ],

@@ -11,6 +11,7 @@ var hierarchy =
     [ "QObject", null, [
       [ "AppInfo", "classAppInfo.html", null ],
       [ "ConfigManager", "classConfigManager.html", null ],
+      [ "FontManager", "classFontManager.html", null ],
       [ "TestHistory", "classTestHistory.html", null ],
       [ "TestResult", "classTestResult.html", null ],
       [ "ThemeManager", "classThemeManager.html", null ],

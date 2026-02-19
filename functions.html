@@ -24,6 +24,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="XFingerCrack_DocSize.png"/></td>
   <td id="projectalign">
    <div id="projectname">XFingerCrack<span id="projectnumber">&#160;1.0.0</span>
    </div>
@@ -99,6 +100,7 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <li>actualTyped&#160;:&#160;<a class="el" href="structCharacterHistory.html#a4334acff349abe1fdd009975d15cb573">CharacterHistory</a></li>
 <li>AppInfo()&#160;:&#160;<a class="el" href="classAppInfo.html#aba5c2b55143c3a3a62c59d8b17ff62e6">AppInfo</a></li>
 <li>ApplicationName()&#160;:&#160;<a class="el" href="classAppInfo.html#a255344bdcc79cac9b63682fbcde25495">AppInfo</a></li>
+<li>AvailableFonts()&#160;:&#160;<a class="el" href="classFontManager.html#aeb150fe8e86d256d3a4e3c7c4d6fff2b">FontManager</a></li>
 <li>AvailableLanguages()&#160;:&#160;<a class="el" href="classTranslationManager.html#ac97b62bf908737e788544721b35782a6">TranslationManager</a>, <a class="el" href="classWordGenerator.html#a76e44de21b044ab88b7d32a2ea53ae2d">WordGenerator</a></li>
 <li>AvailableThemes()&#160;:&#160;<a class="el" href="classThemeManager.html#a9ceabf6764989bf72e489a8137706e50">ThemeManager</a></li>
 </ul>
@@ -122,6 +124,7 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <li>correctionCount&#160;:&#160;<a class="el" href="structCharacterHistory.html#ad69f7d2e334fecb211472cc952bf93e8">CharacterHistory</a></li>
 <li>correctTyped&#160;:&#160;<a class="el" href="structCharacterStats.html#a7ff8edc670d6ab1db0f2bbabf74dad6b">CharacterStats</a></li>
 <li>correctWords&#160;:&#160;<a class="el" href="structTestStatistics.html#a4005e1918902f5d9b8acd849009f0319">TestStatistics</a></li>
+<li>CurrentFont()&#160;:&#160;<a class="el" href="classFontManager.html#ac40f89abb753ae17ddc6fc91d23fdff9">FontManager</a></li>
 <li>CurrentLanguage()&#160;:&#160;<a class="el" href="classTranslationManager.html#aa395415eaa08864ed614a2708442cbb1">TranslationManager</a>, <a class="el" href="classWordGenerator.html#a1e1f6a09efb45c2787f66ce1e6bb70b0">WordGenerator</a></li>
 <li>CurrentTheme()&#160;:&#160;<a class="el" href="classThemeManager.html#ab216a683df5b8f2c4d8ad88003aa3398">ThemeManager</a></li>
 <li>CurrentThemeId()&#160;:&#160;<a class="el" href="classThemeManager.html#a03a98352eea570e29a3efafe6234c112">ThemeManager</a></li>
@@ -146,6 +149,7 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <li>FinalizeResults()&#160;:&#160;<a class="el" href="classTestResult.html#a91d55f96ad4fb78c23bebe93f02c9aa1">TestResult</a></li>
 <li>finalState&#160;:&#160;<a class="el" href="structCharacterHistory.html#af79811472d5ad918249da583db39372c">CharacterHistory</a></li>
 <li>finalWpm&#160;:&#160;<a class="el" href="structTestStatistics.html#a19d7e3f37d89e795032330e048f29fa5">TestStatistics</a></li>
+<li>FontManager()&#160;:&#160;<a class="el" href="classFontManager.html#a565773e58e251b669dd1ae63071c1d83">FontManager</a></li>
 </ul>
 
 
@@ -157,6 +161,7 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <li>GetCharacterStates()&#160;:&#160;<a class="el" href="classTypingTest.html#a37ddec2aeff549bd0bf321c69f806e4b">TypingTest</a></li>
 <li>GetDatabasePath()&#160;:&#160;<a class="el" href="classConfigManager.html#ae2b407ab0b73da1e5b7219020cc08318">ConfigManager</a>, <a class="el" href="classTestHistory.html#a6ca1502da31c3bd6c5a7947fc840258a">TestHistory</a></li>
 <li>GetErrorCount()&#160;:&#160;<a class="el" href="classTestResult.html#a14e5c14d167a8ca931bdb282c2d3d219">TestResult</a></li>
+<li>GetFontFamily()&#160;:&#160;<a class="el" href="classFontManager.html#a1ec22483f73edbb95a73f0d78816b9a5">FontManager</a></li>
 <li>getMainQmlPath()&#160;:&#160;<a class="el" href="classAbstractQmlApplication.html#a5a465334cf30279d78376a3354100fbf">AbstractQmlApplication</a>, <a class="el" href="classXFingerCrackApplication.html#a20119b471c292c23790fa89a67d1c247">XFingerCrackApplication</a></li>
 <li>GetMaxWpm()&#160;:&#160;<a class="el" href="classTestResult.html#aee3c2bb178df87f562c3240ce9ca7559">TestResult</a></li>
 <li>GetMinWpm()&#160;:&#160;<a class="el" href="classTestResult.html#a856b993bb0736543a8a30e00eac8ea25">TestResult</a></li>
@@ -239,6 +244,7 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <li>SetCurrentLanguage()&#160;:&#160;<a class="el" href="classTranslationManager.html#a4dcc5b530c2d4c333fadb0b4d79a3e16">TranslationManager</a></li>
 <li>setDuration()&#160;:&#160;<a class="el" href="classTypingTest.html#a2f60f436b8214a341178c83dc812e125">TypingTest</a></li>
 <li>SetEngine()&#160;:&#160;<a class="el" href="classTranslationManager.html#a7be3a0f25ce78db50c2b4169e758456f">TranslationManager</a></li>
+<li>SetFont()&#160;:&#160;<a class="el" href="classFontManager.html#a0ccb3b83d7a130a3841c40513a5d0011">FontManager</a></li>
 <li>setMode()&#160;:&#160;<a class="el" href="classTypingTest.html#accde9f5a39d9d7f33f050b25b9cd2eee">TypingTest</a></li>
 <li>setTestHistory()&#160;:&#160;<a class="el" href="classTypingTest.html#acd48b2dbaa2982c0fe6e09e067de579b">TypingTest</a></li>
 <li>SetTheme()&#160;:&#160;<a class="el" href="classThemeManager.html#a41aee1876d1d8bf8d3e5ef6ab4a57277">ThemeManager</a></li>

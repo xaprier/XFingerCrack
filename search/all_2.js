@@ -22,8 +22,9 @@ var searchData=
   ['correcttyped_19',['correctTyped',['../structCharacterStats.html#a7ff8edc670d6ab1db0f2bbabf74dad6b',1,'CharacterStats']]],
   ['correctwords_20',['correctWords',['../structTestStatistics.html#a4005e1918902f5d9b8acd849009f0319',1,'TestStatistics']]],
   ['creating_20custom_20themes_21',['Creating Custom Themes',['../md_README.html#autotoc_md28',1,'']]],
-  ['currentlanguage_22',['currentlanguage',['../classTranslationManager.html#aa395415eaa08864ed614a2708442cbb1',1,'TranslationManager::CurrentLanguage()'],['../classWordGenerator.html#a1e1f6a09efb45c2787f66ce1e6bb70b0',1,'WordGenerator::CurrentLanguage()']]],
-  ['currenttheme_23',['CurrentTheme',['../classThemeManager.html#ab216a683df5b8f2c4d8ad88003aa3398',1,'ThemeManager']]],
-  ['currentthemeid_24',['CurrentThemeId',['../classThemeManager.html#a03a98352eea570e29a3efafe6234c112',1,'ThemeManager']]],
-  ['custom_20themes_25',['Creating Custom Themes',['../md_README.html#autotoc_md28',1,'']]]
+  ['currentfont_22',['CurrentFont',['../classFontManager.html#ac40f89abb753ae17ddc6fc91d23fdff9',1,'FontManager']]],
+  ['currentlanguage_23',['currentlanguage',['../classTranslationManager.html#aa395415eaa08864ed614a2708442cbb1',1,'TranslationManager::CurrentLanguage()'],['../classWordGenerator.html#a1e1f6a09efb45c2787f66ce1e6bb70b0',1,'WordGenerator::CurrentLanguage()']]],
+  ['currenttheme_24',['CurrentTheme',['../classThemeManager.html#ab216a683df5b8f2c4d8ad88003aa3398',1,'ThemeManager']]],
+  ['currentthemeid_25',['CurrentThemeId',['../classThemeManager.html#a03a98352eea570e29a3efafe6234c112',1,'ThemeManager']]],
+  ['custom_20themes_26',['Creating Custom Themes',['../md_README.html#autotoc_md28',1,'']]]
 ];
