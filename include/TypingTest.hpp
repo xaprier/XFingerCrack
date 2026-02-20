@@ -207,7 +207,9 @@ class TypingTest : public QObject {
     qint64 m_lastRecordTime;
     int m_lastProcessedLength;
     int m_lastRecordedWords;
-    QSet<int> m_positionsWithErrors;  // Positions that have ever had incorrect characters
+    QSet<int> m_positionsWithErrors;     // Positions that have ever had incorrect
+                                         // characters
+    QMap<int, qint64> m_wordStartTimes;  // Track start time for each word
 };
 
 #endif  // TYPINGTEST_HPP
