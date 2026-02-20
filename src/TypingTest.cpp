@@ -16,6 +16,7 @@ TypingTest::TypingTest(WordGenerator* wordGenerator, QObject* parent)
             &TypingTest::UpdateLiveMetrics);
 
     m_testResult = new TestResult(this);
+    m_wordStartTimes.clear();
 }
 
 void TypingTest::setUserInput(const QString& input) {
@@ -27,7 +28,8 @@ void TypingTest::setUserInput(const QString& input) {
         StartTest();
     }
 
-    // Track corrections: positions where user previously typed wrong character and now types correct one
+    // Track corrections: positions where user previously typed wrong character
+    // and now types correct one
     if (m_isActive && !m_targetText.isEmpty() && !input.isEmpty()) {
         int minLen = std::min(input.length(), m_targetText.length());
 
@@ -36,7 +38,8 @@ void TypingTest::setUserInput(const QString& input) {
             bool hadErrorBefore = m_positionsWithErrors.contains(i);
 
             if (currentlyCorrect && hadErrorBefore) {
-                // This position was previously wrong, now it's correct - record correction
+                // This position was previously wrong, now it's correct - record
+                // correction
                 m_testResult->RecordCharacterCorrection(i);
                 m_positionsWithErrors.remove(i);
             } else if (!currentlyCorrect) {
@@ -91,11 +94,14 @@ void TypingTest::StartTest() {
     m_lastProcessedLength = 0;
     m_lastRecordedWords = 0;
     m_positionsWithErrors.clear();
+    m_wordStartTimes.clear();
+    m_wordStartTimes[0] = 0;  // First word starts at time 0
     m_isActive = true;
     m_elapsedTimer.start();
 
-    m_updateTimer->start(100);   // Update every 100ms
-    m_metricsTimer->start(500);  // Update metrics every 500ms for better granularity
+    m_updateTimer->start(100);  // Update every 100ms
+    m_metricsTimer->start(
+        500);  // Update metrics every 500ms for better granularity
 
     if (m_mode == TimeBased) {
         m_remainingTime = m_duration;
@@ -163,6 +169,7 @@ void TypingTest::ResetTest() {
     m_lastProcessedLength = 0;
     m_lastRecordedWords = 0;
     m_positionsWithErrors.clear();
+    m_wordStartTimes.clear();
 
     // Clear test result before clearing user input
     m_testResult->Clear();
@@ -333,29 +340,51 @@ void TypingTest::CheckTestCompletion() {
     // Update live metrics before checking completion to have accurate WPM values
     CalculateLiveMetrics();
 
+    // Count words completed by counting spaces in user input (for both modes)
+    int spaceCount = 0;
+    for (int i = 0; i < m_userInput.length(); ++i) {
+        if (m_userInput[i] == ' ') {
+            spaceCount++;
+        }
+    }
+
+    // Completed words = spaces only (don't count current word until space is
+    // pressed)
+    int completedWords = spaceCount;
+
+    // Record newly completed words with word-specific WPM (for both modes)
+    if (completedWords > m_lastRecordedWords) {
+        // Record start time for the newly started word (if any)
+        int nextWordIndex = completedWords;
+        if (!m_wordStartTimes.contains(nextWordIndex)) {
+            m_wordStartTimes[nextWordIndex] = m_elapsedTimer.elapsed();
+        }
+
+        // Process each completed word
+        for (int i = m_lastRecordedWords; i < completedWords; ++i) {
+            // Get word-specific timing
+            qint64 wordStartTime = m_wordStartTimes.value(i, 0);
+            qint64 wordEndTime = m_elapsedTimer.elapsed();
+            qint64 wordDuration = wordEndTime - wordStartTime;
+
+            // Get actual typed word length
+            QStringList userWords = m_userInput.split(' ', Qt::SkipEmptyParts);
+            int wordLength = (i < userWords.size()) ? userWords[i].length() : 0;
+
+            // Calculate WPM for this specific word: (characters / 5) / minutes
+            int wordWpm = 0;
+            if (wordDuration > 0 && wordLength > 0) {
+                double minutes = wordDuration / 60000.0;
+                wordWpm = static_cast<int>((wordLength / 5.0) / minutes);
+            }
+
+            m_testResult->RecordCorrectWord();
+            m_testResult->RecordWordCompletion(i, wordEndTime, wordWpm);
+        }
+        m_lastRecordedWords = completedWords;
+    }
+
     if (m_mode == WordCountBased) {
-        // Count words completed by counting spaces in user input
-        // Don't compare positions - just count spaces user has typed
-        int spaceCount = 0;
-        for (int i = 0; i < m_userInput.length(); ++i) {
-            if (m_userInput[i] == ' ') {
-                spaceCount++;
-            }
-        }
-
-        // Completed words = spaces only (don't count current word until space is
-        // pressed)
-        int completedWords = spaceCount;
-
-        // Record newly completed correct words with current WPM
-        if (completedWords > m_lastRecordedWords) {
-            for (int i = m_lastRecordedWords; i < completedWords; ++i) {
-                m_testResult->RecordCorrectWord();
-                m_testResult->RecordWordCompletion(i, m_elapsedTimer.elapsed(), m_liveWpm);
-            }
-            m_lastRecordedWords = completedWords;
-        }
-
         m_remainingWords = std::max(0, m_wordCount - completedWords);
         emit remainingWordsChanged();
 
@@ -368,7 +397,9 @@ void TypingTest::CheckTestCompletion() {
             // Check if last word is being typed (has content after last space)
             // Find position after last space
             int lastSpacePos = m_userInput.lastIndexOf(' ');
-            QString lastWord = lastSpacePos >= 0 ? m_userInput.mid(lastSpacePos + 1).trimmed() : m_userInput.trimmed();
+            QString lastWord = lastSpacePos >= 0
+                                   ? m_userInput.mid(lastSpacePos + 1).trimmed()
+                                   : m_userInput.trimmed();
 
             // Get the target last word
             QStringList targetWords = m_targetText.split(' ', Qt::SkipEmptyParts);
