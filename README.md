@@ -19,7 +19,7 @@
 
 XFingerCrack is a modern, feature-rich typing test application built with Qt6 and QML. It provides comprehensive metrics for measuring and improving typing speed and accuracy, with support for multiple languages, customizable themes, and detailed performance analytics. Inspired by [MonkeyType](https://github.com/monkeytypegame/monkeytype)
 
-📚 **[View API Documentation](https://xaprier.github.io/fingercrack/)**
+📚 **[View API Documentation](https://xaprier.github.io/XFingerCrack/)**
 
 ## Features
 
@@ -292,3 +292,34 @@ Contributions are welcome. Please follow these guidelines:
 ## License
 
 This project is licensed under the GNU GPLv3 License - see the [LICENSE](LICENSE) file for details.
+
+## Screenshots
+
+All the UI and theming screenshots can be found in the [assets/screenshots](assets/screenshots) directory.
+
+### Themes
+
+| Ayu Light | GitHub Light | Solarized Light |
+|-----------|--------------|-----------------|
+| ![Ayu Light](assets/screenshots/theme_ayulight.png) | ![GitHub Light](assets/screenshots/theme_githublight.png) | ![Solarized Light](assets/screenshots/theme_solarizedlight.png) |
+
+| Catppuccin Mocha | Dracula | Nord |
+|------------------|---------|------|
+| ![Catppuccin Mocha](assets/screenshots/theme_catppuccinmocha.png) | ![Dracula](assets/screenshots/theme_dracula.png) | ![Nord](assets/screenshots/theme_nord.png) |
+
+| Everforest | Gruvbox Dark | One Dark |
+|------------|--------------|-------------|
+| ![Everforest](assets/screenshots/theme_everforest.png) | ![Gruvbox Dark](assets/screenshots/theme_gruvboxdark.png) | ![One Dark](assets/screenshots/theme_onedark.png) |
+
+| Rose Pine | Tokyo Night | Moonlight |
+|-----------|-------------|-----------|
+| ![Rose Pine](assets/screenshots/theme_rosepine.png) | ![Tokyo Night](assets/screenshots/theme_tokyonight.png) | ![Moonlight](assets/screenshots/theme_moonlight.png) |
+
+### UI
+| Test Screen | Result Screen | Settings |
+|-------------|---------------|----------|
+| ![Test Screen](assets/screenshots/theme_tokyonight.png) | ![Result Screen](assets/screenshots/ui_testresult.png) | ![Settings](assets/screenshots/ui_settings.png) |
+
+| History - Recent Tests | History - Statistics | History - Best Results |
+|-----------------------|----------------------|-----------------------|
+| ![History - Recent Tests](assets/screenshots/ui_history_recent.png) | ![History - Statistics](assets/screenshots/ui_history_statistics.png) | ![History - Best Results](assets/screenshots/ui_history_best.png) |

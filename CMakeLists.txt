@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.16)
 
 project(
     XFingerCrack 
-    VERSION 1.0.0 
+    VERSION 1.0.1
     LANGUAGES CXX
     DESCRIPTION "A local typing test application to measure and improve your typing speed and accuracy built with Qt6."
     HOMEPAGE_URL "https://github.com/xaprier/XFingerCrack"
