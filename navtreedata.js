@@ -62,7 +62,11 @@ var NAVTREE =
         [ "Creating Custom Themes", "md_README.html#autotoc_md28", null ]
       ] ],
       [ "Contributing", "md_README.html#autotoc_md29", null ],
-      [ "License", "md_README.html#autotoc_md30", null ]
+      [ "License", "md_README.html#autotoc_md30", null ],
+      [ "Screenshots", "md_README.html#autotoc_md31", [
+        [ "Themes", "md_README.html#autotoc_md32", null ],
+        [ "UI", "md_README.html#autotoc_md33", null ]
+      ] ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
