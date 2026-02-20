@@ -19,7 +19,7 @@
 
 XFingerCrack is a modern, feature-rich typing test application built with Qt6 and QML. It provides comprehensive metrics for measuring and improving typing speed and accuracy, with support for multiple languages, customizable themes, and detailed performance analytics. Inspired by [MonkeyType](https://github.com/monkeytypegame/monkeytype)
 
-📚 **[View API Documentation](https://xaprier.github.io/fingercrack/)**
+📚 **[View API Documentation](https://xaprier.github.io/XFingerCrack/)**
 
 ## Features
 
